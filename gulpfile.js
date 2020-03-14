@@ -24,7 +24,7 @@ var path = {
     src: {
         html: 'src/index.html',
         external_js: ['node_modules/angular/angular.js', 'node_modules/angular-ui-router/release/angular-ui-router.js'],
-        internal_js: ['src/modules/*.js', 'src/**/*.js']
+        internal_js: ['src/modules/mainApp.js', 'src/modules/apiModule.js', 'src/**/*.js']
     },
     watch: {
         html: 'src/index.html',
@@ -67,7 +67,7 @@ gulp.task("project:build_js", gulp.series(gulp.parallel("external_js:build", "in
 gulp.task("project:build", gulp.series('project:build_js', 'main_js:build', 'html:build'));
 
 gulp.task("project:watch", function () {
-    gulp.watch(path.watch.js, gulp.series("js:build", "html:build"));
+    gulp.watch(path.watch.js, gulp.series("project:build"));
     gulp.watch(path.watch.html, gulp.series("html:build"));
 });
 
