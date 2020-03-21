@@ -1,0 +1,50 @@
+h1, h2, h3, p, input, div {
+    font-family: Geneva;
+    margin: 0px;
+}
+
+input {
+    outline:none;
+}
+
+body {
+    min-width: 320px;
+    width: 100%;
+}
+
+a, a:hover, a:active, a:visited, a:link{
+    cursor: pointer;
+    border-bottom: 1px dotted #cdcccc;
+    color: #bababa;
+    text-decoration: none
+}
+
+.form_auth {
+    width: 480px;
+    margin: 20px auto;
+    background-color: #fafafa;
+    border-radius: 5px;
+    padding: 0 20px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .form_auth {
+        width: 320px;
+        margin: 20px auto;
+    }
+}
+
+#personal_area {
+    width: 1140px;
+    margin: 53px auto;
+    height: 212px;
+    padding: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0px;
+    vertical-align:middle;
+    margin: 0px;
+
+}

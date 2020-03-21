@@ -1,0 +1,11 @@
+<header-component></header-component>
+<div class="form_auth">
+    <h1 class="header_form">REGISTRATION FORM</h1>
+    <p class="body_form">Use Google sign in to automate all steps</p>
+    <p class="bottom">Do have account? <a href="auth">Sign in</a></p>
+    <input-component placeholder="'Name'" value="$ctrl.userName" error="$ctrl.errorName" type="'text'"></input-component></br>
+    <input-component placeholder="'Email'" value="$ctrl.email" error="$ctrl.errorEmail" type="'text'"></input-component></br>
+    <input-component placeholder="'Password'" value="$ctrl.password" error="$ctrl.errorPassword" type="'password'"></input-component></br>
+    <input-component placeholder="'Phone'" value="$ctrl.phone" error="$ctrl.errorPhone" type="'text'"></input-component></br>
+    <input class="button_long" type="button" value="SUBMIT" ng-click="$ctrl.registration()"></br>
+</div>

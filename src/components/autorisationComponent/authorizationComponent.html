@@ -1,0 +1,9 @@
+<header-component></header-component>
+<div class="form_auth" ng-show="!$ctrl.form">
+    <h1 class="header_form">LOGIN FORM</h1>
+    <p class="body_form">Use Google sign in to automate all steps</p>
+    <p class="bottom">Don't have account? <a href="registration">Sign up</a></p>
+    <input-component placeholder="'Email'" value="$ctrl.email" error="$ctrl.errorEmail" type="'text'"></input-component></br>
+    <input-component placeholder="'Password'" value="$ctrl.password" error="$ctrl.errorPassword" type="'password'"></input-component></br>
+    <input class="button_long" type="button" ng-click="$ctrl.authorization()" value="SUBMIT"/>
+</div>

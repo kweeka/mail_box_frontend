@@ -1,0 +1,12 @@
+#header_personal {
+    text-align: left;
+}
+
+.form_auth .body_personal {
+    color: #0a392e;
+    font-size: 20px;
+}
+
+.form_auth .body_personal span {
+    font-weight: bold;
+}

@@ -31,6 +31,8 @@
     "angular-ui-router": "^1.0.25",
     "gulp-angular-embed-templates": "^2.3.0",
     "gulp-autoprefixer": "^7.0.1",
-    "gulp-sourcemaps": "^2.6.5"
+    "gulp-imagemin": "^7.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "imagemin-pngquant": "^8.0.0"
   }
 }
