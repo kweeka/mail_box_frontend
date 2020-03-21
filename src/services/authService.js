@@ -1,10 +1,32 @@
 (function () {
     angular.module("apiModule")
-        .factory("authService", ["$http", function ($http) {
+        .factory("authService", ["$http", "apiUrl", function ($http, apiUrl) {
+            this.apiUrl = apiUrl;
             return {
-                auth: function () {},
-                registration: function () {},
-                getUserInfo: function () {}
+                auth: function (email, password, token_type) {
+                    return $http ({
+                        method: "POST",
+                        url: apiUrl + "/api/v1/auth/login",
+                        data: {email: email, password:password, token_type:token_type}
+                    })
+                },
+                registration: function (email, password, name) {
+                    return $http ({
+                        method: "POST",
+                        url: apiUrl + "/api/v1/user/register",
+                        data: {email: email, password: password, name: name}
+                    })
+                },
+                getUserInfo: function () {
+                    return $http ({
+                        method: "GET",
+                        url: apiUrl + "/api/v1/user",
+                        headers: {
+                            'Authorization': 'Bearer ' + localStorage.getItem("authToken")
+                        }
+                    })
+                }
             }
-        }]);
-});
+        }])
+        .constant("apiUrl", "https://dev1.agafonov.me");
+})();
