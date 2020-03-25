@@ -10,3 +10,14 @@
 .form_auth .body_personal span {
     font-weight: bold;
 }
+
+.form_auth input, .button_short {
+    margin-top: 57px;
+}
+
+.personal_area {
+    width: 1140px;
+    margin: 53px auto;
+    height: 212px;
+    padding: 20px;
+}

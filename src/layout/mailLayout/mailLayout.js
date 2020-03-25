@@ -1,13 +1,13 @@
 (function () {
-    angular.module("mainApp").component("mailInboxLayout", {
-        templateUrl: "mailInboxLayout.html",
-        controller: mailInboxLayoutController,
+    angular.module("mainApp").component("mailLayout", {
+        templateUrl: "mailLayout.html",
+        controller: mailLayoutController,
         bindings: {
             user: "="
         }
         });
 
-    function mailInboxLayoutController($state) {
+    function mailLayoutController($state) {
         var ctrl = this;
         ctrl.$onInit = function () {
             if(!ctrl.user){

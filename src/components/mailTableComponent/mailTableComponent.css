@@ -1,0 +1,128 @@
+
+@media (min-width: 768px) and (max-width: 1139px) {
+    #text_table {
+        padding-top: 12px;
+    }
+}
+
+#mail_table {
+    width: 98%;
+    margin: 15px 10px;
+}
+
+#mail_table td {
+    padding: 0px 5px;
+    height: 35px;
+}
+
+@media (min-width: 768px) and (max-width: 1139px) {
+    #mail_table td {
+        height: 48px;
+    }
+}
+
+#mail_table tr {
+    border-bottom: solid 1px #d5d5d5;
+}
+
+.checkbox_mail {
+    width: 3%;
+}
+
+
+.sender_table {
+    width: 20%;
+}
+
+@media (min-width: 1024px) and (max-width: 1139px) {
+    .sender_table {
+        width: 23%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .sender_table {
+        width: 28%;
+    }
+}
+
+.text_table {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@media (min-width: 768px) and (max-width: 1139px) {
+    .text_table {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .text_table {
+        flex-direction: column;
+    }
+}
+
+.date_table {
+    width: 10%;
+}
+
+@media (min-width: 1024px) and (max-width: 1139px) {
+    .date_table {
+        width: 12%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .date_table {
+        width: 17%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1139px) {
+    .text_table span{
+        align-self: flex-start;
+    }
+}
+
+#spender_email_circle {
+    color: #FFFFFF;
+    background-color: #eb7d16;
+    line-height: 19px;
+    height: 28px;
+    width: 28px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 19px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

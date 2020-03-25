@@ -1,7 +1,10 @@
 (function () {
     angular.module("mainApp").component("personalLayout",{
         templateUrl: "personalLayout.html",
-        controller: personalLayoutController
+        controller: personalLayoutController,
+        bindings: {
+            user: "="
+        }
     });
 
     function personalLayoutController() {

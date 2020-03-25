@@ -1,22 +1,11 @@
 (function () {
     angular.module("mainApp").component("authorizationComponent",{
         templateUrl: "authorizationComponent.html",
-        controller: authorizationController,
-
+        controller: authorizationController
     });
 
-    function authorizationController(authService, $state, userService) {
+    function authorizationController(authService, $state) {
         var ctrl = this;
-        /*ctrl.$onInit = function() {
-            if (localStorage.getItem("authToken")) {
-                authService.getUserInfo()
-                    .then(function success(response) {
-                        userService.setUser(response.data.response.name, response.data.response.email, response.data.response.groups);
-                        $state.go("mailInbox");
-                    }, function error(response) {
-                    })
-            }
-        };*/
         ctrl.authorization = function () {
             if (ctrl.email === undefined || !ctrl.email.match(/\w+@\w+\.\w+/g)){
                 ctrl.errorEmail = "Not correct";
@@ -30,7 +19,7 @@
                 .then (function success(response) {
                     console.log(response);
                     localStorage.setItem("authToken", response.data.response.token);
-                    $state.go("mailInbox");
+                    $state.go("mail");
                 }, function error(response) {
                     console.log(response);
                     if (response.data.response.field === "email"){

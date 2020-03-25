@@ -1,5 +1,16 @@
 (function () {
-    angular.module("userModule", [])
+    angular.module("storageModule", [])
+        .factory("mailStorage", function () {
+            return {
+                emails: null,
+                setEmails: function (emails) {
+                    this.emails = emails;
+                },
+                getEmails: function () {
+                    return this.emails;
+                }
+            }
+        })
         .factory("userService", function () {
             return {
                 user: null,

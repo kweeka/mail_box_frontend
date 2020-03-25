@@ -1,0 +1,44 @@
+#mail_menu_desktop{
+    background-color: #fafafa;
+    width: 240px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #mail_menu_desktop {
+        width: 175px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    #mail_menu_desktop {
+        display: none;
+    }
+}
+
+#mail_menu_desktop li{
+    text-align: left;
+    border-bottom: solid 1px #d5d5d5;
+}
+
+#mail_menu_desktop a{
+    width: 100%;
+    color: #959595;
+    font-size: 20px;
+    border: none;
+    display: block;
+    vertical-align: middle;
+    padding: 10px 0px 10px 15px;
+}
+#mail_menu_desktop .active a{
+    color: #5d6462;
+    background-color: #ededed;
+}
+
+#mail_menu_desktop a:hover {
+    text-decoration: none;
+    color: #5d6462;
+}
+
+#mail_menu_desktop li:last-child{
+    border-bottom: none;
+}
