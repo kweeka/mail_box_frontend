@@ -27,7 +27,7 @@ var path = {
     },
     src: {
         html: 'src/index.html',
-        external_js: ['node_modules/angular/angular.js', 'node_modules/angular-ui-router/release/angular-ui-router.js'],
+        external_js: ['node_modules/angular/angular.js', 'node_modules/angular-ui-router/release/angular-ui-router.js', 'node_modules/moment/min/moment-with-locales.js'],
         internal_js: ['src/modules/mainApp.js', 'src/modules/apiModule.js', 'src/**/*.js'],
         style: 'src/**/*.css',
         icons: 'src/resourses/icons/**/*.*'

@@ -1,0 +1,14 @@
+#body_open_mail {
+    white-space: pre-wrap;
+}
+#subject_open_mail {
+    font-size: 22px;
+    font-weight: bold;
+}
+#open_mail {
+    margin: 20px;
+}
+
+.mobile_menu_show {
+    display: block;
+}

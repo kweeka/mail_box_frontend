@@ -1,0 +1,47 @@
+#bottom_mail {
+    display: flex;
+    justify-content: space-between;
+    width: 98%;
+    margin: 10px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    #bottom_mail {
+        display: none;
+    }
+}
+
+#value_mail_page {
+    display: flex;
+}
+
+#change_page {
+    display: flex;
+    justify-content: space-between;
+    width: 136px;
+}
+
+#value_mail_page input {
+    border: none;
+    width: 36px;
+    border-bottom: 1px dotted #cdcccc;
+    padding: 0px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

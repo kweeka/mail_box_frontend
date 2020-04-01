@@ -25,6 +25,25 @@
                             'Authorization': 'Bearer ' + localStorage.getItem("authToken")
                         }
                     })
+                },
+                updateUserData: function (name) {
+                    return $http ({
+                        method: "POST",
+                        url: apiUrl + "/api/v1/user/update",
+                        data: {name: name},
+                        headers: {
+                            'Authorization': 'Bearer ' + localStorage.getItem("authToken")
+                        }
+                    })
+                },
+                logout: function () {
+                    return $http ({
+                        method: "GET",
+                        url: apiUrl + "/api/v1/auth/logout",
+                        headers: {
+                            'Authorization': 'Bearer ' + localStorage.getItem("authToken")
+                        }
+                    })
                 }
             }
         }])

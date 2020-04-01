@@ -1,0 +1,11 @@
+<div class="mail_menu mobile_menu_show">
+    <input type="button" value="Respond" ui-sref="mail.new({recipient: $ctrl.email.sender, subject:$ctrl.email.subject})"/>
+    <input type="button" value="Delete" ng-click="$ctrl.getAllCheck()"/>
+</div>
+<div>
+    <div id="open_mail">
+        <div id="subject_open_mail">{{$ctrl.email.subject}}</div>
+        <div>{{$ctrl.email.sender}}</div>
+        <div id="body_open_mail">{{$ctrl.email.text}}</div>
+    </div>
+</div>

@@ -19,7 +19,7 @@
                     .then(function success(response) {
                         console.log(response);
                         localStorage.setItem("authToken", response.data.response.token);
-                        $state.go("mail");
+                        $state.go("mail.inbox");
                     }, function error(response) {
                         console.log(response);
                     })

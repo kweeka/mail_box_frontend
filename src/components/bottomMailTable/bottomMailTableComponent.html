@@ -1,0 +1,20 @@
+<div id="bottom_mail">
+    <div id="value_mail_page">
+        <div>Show number of letters</div>
+        <select ng-init="$ctrl.sele" ng-model="$ctrl.sele" ng-options="x for x in $ctrl.listMailPage" ng-change="$ctrl.getMailValMails()">
+        </select>
+    </div>
+    <div id="change_page">
+        <div ng-click="[$ctrl.page = ($ctrl.page - 1), $ctrl.transition()]" ng-show="$ctrl.earlyPageLimit"><a><<</a></div>
+        <div>
+            <span>
+                <span>{{$ctrl.firstMail}}</span>
+                -
+                <span>{{$ctrl.lastMail}}</span>
+            </span>
+            of
+            <span>{{$ctrl.getCount()}}</span>
+        </div>
+        <div ng-click="[$ctrl.page = ($ctrl.page + 1), $ctrl.transition()]" ng-show="$ctrl.nextPageLimit"><a>>></a></div>
+    </div>
+</div>

@@ -230,6 +230,7 @@
 
 #info_user_header {
     display: flex;
+    cursor: pointer;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -248,6 +249,65 @@
     color: #5d6462;
     background-color: #d3d3d3;
 }
+
+#menu_logout_personal {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin: 50px 0px 0px 996px;
+}
+
+@media (min-width: 1024px) and (max-width: 1139px) {
+    #menu_logout_personal {
+        margin: 50px 0px 0px 877px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #menu_logout_personal {
+        margin: 50px 0px 0px 618px;
+    }
+}
+
+#menu_logout_personal li {
+    border-bottom: solid 1px #959595;
+    padding: 2px;
+}
+
+#menu_logout_personal ul {
+    background-color: #ffffff;
+    margin: 7px;
+    width: 107px;
+    color: #5d6462;
+    text-align: center;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,.30), 0 2px 6px 2px rgba(60,64,67,.15);
+}
+
+#menu_logout_personal li:last-child {
+    border-bottom: none;
+}
+
+#menu_logout_personal li:hover{
+    color: #5d6462;
+    background-color: #f7f7f7;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

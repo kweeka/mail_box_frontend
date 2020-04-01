@@ -3,7 +3,8 @@
         templateUrl: "mailDeletedComponent.html",
         controller: mailDeletedController,
         bindings: {
-            emails: "="
+            emails: "=",
+            page: "="
         }
     });
 

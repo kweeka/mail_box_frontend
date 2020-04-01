@@ -3,11 +3,19 @@
         .factory("mailStorage", function () {
             return {
                 emails: null,
-                setEmails: function (emails) {
+                count: null,
+                setEmails: function (emails, count) {
                     this.emails = emails;
+                    this.count = count;
                 },
                 getEmails: function () {
                     return this.emails;
+                },
+                getCount: function () {
+                    return this.count;
+                },
+                addEmails: function (arr) {
+                    this.emails.push(arr);
                 }
             }
         })
@@ -22,6 +30,9 @@
                 },
                 getUser: function () {
                     return this.user;
+                },
+                clearUser: function () {
+                    this.user = null;
                 }
             };
         });

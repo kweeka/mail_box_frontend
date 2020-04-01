@@ -3,7 +3,7 @@ h1, h2, h3, p, input, div, ul, li, a {
     margin: 0px;
 }
 
-input {
+input, textarea{
     outline:none;
 }
 

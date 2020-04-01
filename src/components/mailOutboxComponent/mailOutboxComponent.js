@@ -1,7 +1,10 @@
 (function () {
     angular.module("mainApp").component("mailOutboxComponent", {
         templateUrl: "mailOutboxComponent.html",
-        controller: mailOutboxController
+        controller: mailOutboxController,
+        bindings: {
+            user: "="
+        }
         });
 
     function mailOutboxController() {

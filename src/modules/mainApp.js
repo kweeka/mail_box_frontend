@@ -1,5 +1,5 @@
 (function () {
-    angular.module("mainApp", ["ui.router", "apiModule","storageModule"])
+    angular.module("mainApp", ["ui.router", "apiModule","storageModule", "filterModule"])
         .config(["$stateProvider", "$locationProvider", "$urlRouterProvider",  function ($stateProvider, $locationProvider, $urlRouterProvider) {
             $locationProvider.html5Mode(true);
             $stateProvider.state({
@@ -44,7 +44,6 @@
                                     return null;
                                 });
                         }
-                        console.log("not");
                         return null;
                     }
                 }
@@ -96,68 +95,77 @@
                 }
             });
             $stateProvider.state({
-                name: "mail.mailInbox",
-                url: "/inbox",
+                name: "mail.inbox",
+                url: "/inbox/:page",
                 component: "mailInboxComponent",
+                params: {
+                    page: {
+                        value: 1,
+                        squash:true,
+                        type: "int"
+                    }
+                },
                 resolve: {
-                    emails: function (mailStorage, mailService) {
+                    emails: function (mailStorage, mailService, $stateParams) {
+                        var page = $stateParams.page || 1;
+                        var count = localStorage.getItem("pageMailCount") || 3;
                         var emailsArr = [];
                         if (localStorage.getItem("authToken")) {
-                            return mailService.getMailInbox(3)
+                            return mailService.getMailInbox(page, count)
                                 .then(function success(response) {
-                                    var now = new Date;
-                                    var curr_date = now.getDate();
-                                    if ((now.getMonth() + 1) < 10) {
-                                        var curr_month = "0" + (now.getMonth() + 1);
-                                    } else {curr_month = now.getMonth() + 1}
-                                    var curr_year = now.getFullYear();
-                                    var dateNow = curr_year + "-" + curr_month + "-" + curr_date;
-                                    for (var i = 0; i < response.data.response.items.length; i++) {
-                                        if (dateNow == response.data.response.items[i].date.slice(0, 10)){
-                                            var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject, response.data.response.items[i].sender, response.data.response.items[i].text, response.data.response.items[i].read, response.data.response.items[i].date.slice(0, 10));
-                                        } else {
-                                            var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject, response.data.response.items[i].sender, response.data.response.items[i].text, response.data.response.items[i].read, response.data.response.items[i].date.slice(11));
+                                    if(response.data.response.items.length > 0){
+                                        for (var i = 0; i < response.data.response.items.length; i++) {
+                                            var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
+                                                response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].read,
+                                                new Date(response.data.response.items[i].date));
+                                            console.log(email);
+                                            emailsArr.push(email);
                                         }
-                                        emailsArr.push(email);
+                                        mailStorage.setEmails(emailsArr, response.data.response.count);
+                                        return mailStorage.getEmails();
+                                    } else {
+                                        return null;
                                     }
-                                    mailStorage.setEmails(emailsArr);
-                                    return mailStorage.getEmails();
                                     }, function error() {
                                         return null;
                                     }
                                 );
                         }
+                    },
+                    page: function ($stateParams) {
+                        return $stateParams.page;
                     }
+
                 }
             });
             $stateProvider.state({
-                name: "mail.mailOutbox",
+                name: "mail.outbox",
                 url: "/outbox",
                 component: "mailOutboxComponent"
             });
             $stateProvider.state({
-                name: "mail.mailDeleted",
-                url: "/deleted",
+                name: "mail.deleted",
+                url: "/deleted:page",
                 component: "mailDeletedComponent",
+                params: {
+                    page: {
+                        value: 1,
+                        squash:true,
+                        type: "int"
+                    }
+                },
                 resolve: {
-                    emails: function (mailStorage, mailService) {
+                    emails: function (mailStorage, mailService, $stateParams) {
+                        var page = $stateParams.page || 1;
+                        var count = localStorage.getItem("pageMailCount") || 20;
                         var emailsArr = [];
                         if (localStorage.getItem("authToken")) {
-                            return mailService.getMailDeletedInbox(0,1)
+                            return mailService.getMailDeletedInbox(1,1)
                                 .then (function success(response) {
-                                    var now = new Date;
-                                    var curr_date = now.getDate();
-                                    if ((now.getMonth() + 1) < 10) {
-                                        var curr_month = "0" + (now.getMonth() + 1);
-                                    } else {curr_month = now.getMonth() + 1}
-                                    var curr_year = now.getFullYear();
-                                    var dateNow = curr_year + "-" + curr_month + "-" + curr_date;
                                     for (var i = 0; i < response.data.response.items.length; i++) {
-                                        if (dateNow == response.data.response.items[i].date.slice(0, 10)){
-                                            var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject, response.data.response.items[i].sender, response.data.response.items[i].text, response.data.response.items[i].read, response.data.response.items[i].date.slice(0, 10));
-                                        } else {
-                                            var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject, response.data.response.items[i].sender, response.data.response.items[i].text, response.data.response.items[i].read, response.data.response.items[i].date.slice(11));
-                                        }
+                                        var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
+                                            response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].read,
+                                            new Date(response.data.response.items[i].date));
                                         emailsArr.push(email);
                                     }
                                     mailStorage.setEmails(emailsArr);
@@ -169,6 +177,50 @@
                     }
                 }
             });
-            $urlRouterProvider.otherwise("/mail");
+            $stateProvider.state({
+                name: "mail.new",
+                url: "/newMail?recipient&subject",
+                component: "newMailComponent",
+                params: {
+                    recipient: {
+                        value: null
+                    },
+                    subject: {
+                        value: null
+                    }
+                }
+            });
+            $stateProvider.state({
+                name: "mail.open",
+                url: "/open/:mailId",
+                component: "openMailComponent"
+            });
+            $urlRouterProvider.otherwise("/mail/inbox");
         }]);
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

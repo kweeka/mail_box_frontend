@@ -3,10 +3,10 @@
         .factory("mailService", ["$http", "apiUrl", function ($http, apiUrl) {
         this.apiUrl = apiUrl;
         return {
-            getMailInbox: function (email_page) {
+            getMailInbox: function (email_page, count) {
                 return $http ({
                     method: "GET",
-                    url: apiUrl + "/api/v1/mail/inbox?page=" + email_page,
+                    url: apiUrl + "/api/v1/mail/inbox?page=" + email_page + "&count=" + count,
                     headers: {
                         'Authorization': 'Bearer ' + localStorage.getItem("authToken")
                     }
@@ -32,9 +32,50 @@
                         "ids": arr
                     }
                 })
+            },
+            sendMail: function (email, subject, text) {
+                return $http ({
+                    method: "POST",
+                    url: apiUrl + "/api/v1/mail/send",
+                    data: {email: email, subject: subject, message: text},
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem("authToken")
+                    }
+                })
+            },
+            getOpenMAil: function (mail_id) {
+                return $http ({
+                    method: "GET",
+                    url: apiUrl + "/api/v1/mail/" + mail_id,
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem("authToken")
+                    }
+                })
             }
-
         }
     }])
         .constant ("apiUrl", "https://dev1.agafonov.me")
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,12 +4,16 @@
             templateUrl: "mailInboxComponent.html",
             controller: mailInboxController,
             bindings: {
-                emails: "="
+                emails: "=",
+                page: "="
             }
         });
 
     function mailInboxController(mailService, $state) {
         var ctrl = this;
+        ctrl.$onInit = function () {
+            console.log(ctrl.page);
+        };
         ctrl.arrCheck = [];
         ctrl.getAllCheck = function () {
             for(var y=0; y < ctrl.emails.length; y++){
@@ -24,6 +28,6 @@
                 }, function error(response) {
                     console.log(response);
                 });
-        }
+        };
     }
 })();

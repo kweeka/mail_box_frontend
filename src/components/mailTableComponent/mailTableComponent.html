@@ -1,21 +1,21 @@
-<table id="mail_table" ng-show="$ctrl.emails">
+<table id="mail_table" ng-show="$ctrl.emails" class="desktop_table_mail">
     <tr>
         <td class="checkbox_mail"><input type="checkbox" ng-click="$ctrl.checkAll()" ng-model="$ctrl.checkedAll"/></td>
         <td class="sender_table">Sender</td>
-        <td class="text_table"><span id="text_table">Text</span>
+        <td class="text_table"><span>Text</span>
         </td>
         <td class="date_table">Date</td>
     </tr>
-    <tr ng-repeat="email in $ctrl.emails" >
+    <tr ng-repeat="email in $ctrl.emails| filter:$ctrl.filter" >
         <td class="checkbox_mail"><input type="checkbox" ng-model="email.checked"/></td>
         <td class="sender_table">
             <span id="spender_email_circle">{{email.sender.charAt(0)}}</span>
             <span>{{email.sender}}</span>
         </td>
-        <td class="text_table">
-            <span id="subject_table"><b>{{email.subject}}</b></span><span>{{email.text}}</span>
+        <td class="text_table" ui-sref="mail.open({mailId: email.id})">
+            <span class="subject_table"><b>{{email.subject}}</b></span><span class="text_table_cut">{{email.text}}</span>
         </td>
-        <td class="date_table">{{email.date}}</td>
+        <td class="date_table">{{email.dateTime | emailDateFilter}}</td>
     </tr>
     <div class="bubblingG" ng-show="!$ctrl.emails">
 	<span id="bubblingG_1">
@@ -26,6 +26,24 @@
 	</span>
 </div>
 </table>
+<div id="mobile_table_mail">
+    <div class="mobile_table" ng-repeat="email in $ctrl.emails">
+        <div class="checkbox_mobile_table"><input type="checkbox" ng-model="email.checked"/></div>
+        <div class="body_mobile_table" ui-sref="mail.open({mailId: email.id})">
+            <div class="sender_data_mobile">
+                <div class="sender_mobile_table">{{email.sender}}</div>
+                <div class="date_mobile_table">{{email.dateTime | emailDateFilter}}</div>
+            </div>
+            <div>
+                <div class="subject_mobile_table"><b>{{email.subject}}</b></div>
+                <div class="text_mobile_table twitter-list">{{email.text}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="add_mails_table_mobile">
+    <input type="button" value="more" ng-click="$ctrl.addTable()"/>
+</div>
 
 
 

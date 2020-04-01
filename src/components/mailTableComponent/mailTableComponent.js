@@ -6,7 +6,7 @@
             emails: "="
         }
     });
-    function mailTableController() {
+    function mailTableController(mailService, $stateParams, mailStorage) {
         var ctrl = this;
         ctrl.checkedAll = false;
         ctrl.arrCheck = [];
@@ -24,7 +24,53 @@
                 }
             }
             console.log(ctrl.arrCheck);
-        }
+        };
+        ctrl.addTable = function () {
+            var page = $stateParams.page + 1;
+            var count = localStorage.getItem("pageMailCount") || 3;
+            var emailsArr = [];
+            return mailService.getMailInbox(page, count)
+                .then( function (response) {
+                    if (response.data.response.items.length > 0) {
+                        for (var i = 0; i < response.data.response.items.length; i++) {
+                            var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
+                                response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].read,
+                                new Date(response.data.response.items[i].date));
+                            mailStorage.addEmails(email);
+                        }
+                        $stateParams.page++;
+                        return mailStorage.getEmails();
+                    }
+                }, function error(response) {
+                    console.log(response);
+                })
+        };
 
+        /*ctrl.$onInit = function () {
+            for(var i=0; i < ctrl.emails.length; i++) {
+                console.log($filter('emailDateFilter')(ctrl.emails[i].dateTime));
+            }
+        };*/
+        ctrl.prom = new Promise (
+            function (resolve, reject) {
+                if(ctrl.val == 2){
+                    setTimeout(function() {resolve(1)}, 5000);
+                } else {
+                    reject (2);
+                }
+            }
+        );
+        console.log("zero");
+        ctrl.test = function () {
+            console.log("one");
+            ctrl.prom
+                .then (function success(res) {
+                    console.log(res);
+                }, function error(res) {
+                })
+                .catch (function error(res) {
+                })
+        };
+        ctrl.test();
     }
 })();
