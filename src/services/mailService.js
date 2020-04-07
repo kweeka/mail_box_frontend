@@ -43,7 +43,7 @@
                     }
                 })
             },
-            getOpenMAil: function (mail_id) {
+            getOpenMail: function (mail_id) {
                 return $http ({
                     method: "GET",
                     url: apiUrl + "/api/v1/mail/" + mail_id,

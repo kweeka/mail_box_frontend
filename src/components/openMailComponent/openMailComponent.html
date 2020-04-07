@@ -3,9 +3,25 @@
     <input type="button" value="Delete" ng-click="$ctrl.getAllCheck()"/>
 </div>
 <div>
-    <div id="open_mail">
-        <div id="subject_open_mail">{{$ctrl.email.subject}}</div>
-        <div>{{$ctrl.email.sender}}</div>
+    <div id="open_mail" ng-if="$ctrl.email">
+        <div class="menu_open_mail">
+            <div id="sender_open_mail">
+                <span class="spender_email_circle">{{$ctrl.email.sender.charAt(0)}}</span>
+                <div>{{$ctrl.email.sender}}</div>
+            </div>
+            <div id="date_open_mail">{{$ctrl.email.dateTime | emailDateFilter}}</div>
+        </div>
+        <div class="menu_open_mail">
+            <div id="subject_open_mail">Subject: <span>{{$ctrl.email.subject}}</span></div>
+        </div>
         <div id="body_open_mail">{{$ctrl.email.text}}</div>
+    </div>
+    <div ng-if="!$ctrl.email" class="bubblingG">
+        <span id="bubblingG_1">
+	</span>
+        <span id="bubblingG_2">
+	</span>
+        <span id="bubblingG_3">
+	</span>
     </div>
 </div>

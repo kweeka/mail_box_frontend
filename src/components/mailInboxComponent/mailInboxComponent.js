@@ -9,10 +9,13 @@
             }
         });
 
-    function mailInboxController(mailService, $state) {
+    function mailInboxController(mailService, $state, mailStorage, $timeout) {
         var ctrl = this;
         ctrl.$onInit = function () {
-            console.log(ctrl.page);
+            $timeout(function () {
+                ctrl.emails = mailStorage.getEmails();
+                console.log(mailStorage.getEmails());
+            }, 3000);
         };
         ctrl.arrCheck = [];
         ctrl.getAllCheck = function () {

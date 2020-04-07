@@ -7,14 +7,13 @@
     function openMailController($stateParams, mailService) {
         var ctrl = this;
         ctrl.mailId = $stateParams.mailId;
-        console.log(ctrl.mailId);
         ctrl.$onInit = function () {
             if(localStorage.getItem("authToken")){
-                return mailService.getOpenMAil(ctrl.mailId)
+                return mailService.getOpenMail(ctrl.mailId)
                     .then (function (response) {
                         console.log(response);
                         ctrl.email = new Email(response.data.response.id, response.data.response.subject, response.data.response.sender,
-                            response.data.response.message, response.data.response.read, response.data.response.date);
+                            response.data.response.message, response.data.response.read, new Date(response.data.response.date));
                     }, function (response) {
                         console.log(response);
                     })

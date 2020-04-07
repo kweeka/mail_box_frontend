@@ -4,4 +4,7 @@
     <input type="button" value="Delete" ng-click="$ctrl.getAllCheck()"/>
 </div>
 <mail-table-component emails="$ctrl.emails"></mail-table-component>
-<bottom-mail-table-component page="$ctrl.page"></bottom-mail-table-component>
+<bottom-mail-table-component page="$ctrl.page" ng-if="$ctrl.emails.length > 0" emails="$ctrl.emails"></bottom-mail-table-component>
+
+
+

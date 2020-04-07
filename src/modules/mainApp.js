@@ -106,14 +106,14 @@
                     }
                 },
                 resolve: {
-                    emails: function (mailStorage, mailService, $stateParams) {
+                    emails: function (mailStorage, mailService, $stateParams, $state) {
                         var page = $stateParams.page || 1;
                         var count = localStorage.getItem("pageMailCount") || 3;
                         var emailsArr = [];
                         if (localStorage.getItem("authToken")) {
                             return mailService.getMailInbox(page, count)
                                 .then(function success(response) {
-                                    if(response.data.response.items.length > 0){
+                                    if (response.data.response.items.length) {
                                         for (var i = 0; i < response.data.response.items.length; i++) {
                                             var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
                                                 response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].read,
@@ -121,15 +121,17 @@
                                             console.log(email);
                                             emailsArr.push(email);
                                         }
-                                        mailStorage.setEmails(emailsArr, response.data.response.count);
-                                        return mailStorage.getEmails();
-                                    } else {
-                                        return null;
                                     }
-                                    }, function error() {
-                                        return null;
+                                    else {
+                                        if (page !== 1 && response.data.response.items.length == 0){
+                                            $state.go("mail.inbox", {page: page - 1});
+                                        }
                                     }
-                                );
+                                    mailStorage.setEmails(emailsArr, response.data.response.count);
+                                    return null;
+                                }, function error() {
+                                    return null;
+                                });
                         }
                     },
                     page: function ($stateParams) {
@@ -155,26 +157,38 @@
                     }
                 },
                 resolve: {
-                    emails: function (mailStorage, mailService, $stateParams) {
+                    emails: function (mailStorage, mailService, $stateParams, $state) {
                         var page = $stateParams.page || 1;
-                        var count = localStorage.getItem("pageMailCount") || 20;
+                        var count = localStorage.getItem("pageMailCount") || 3;
                         var emailsArr = [];
                         if (localStorage.getItem("authToken")) {
-                            return mailService.getMailDeletedInbox(1,1)
-                                .then (function success(response) {
-                                    for (var i = 0; i < response.data.response.items.length; i++) {
-                                        var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
-                                            response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].read,
-                                            new Date(response.data.response.items[i].date));
-                                        emailsArr.push(email);
+                            return mailService.getMailDeletedInbox(1, 1)
+                                .then(function success(response) {
+                                    if (response.data.response.items.length) {
+                                        for (var i = 0; i < response.data.response.items.length; i++) {
+                                            var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
+                                                response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].read,
+                                                new Date(response.data.response.items[i].date));
+                                            console.log(email);
+                                            emailsArr.push(email);
+                                        }
+                                    }
+                                    else {
+                                        if (page !== 1 && response.data.response.items.length == 0){
+                                            $state.go("mail.inbox", {page: page - 1});
+                                        }
                                     }
                                     mailStorage.setEmails(emailsArr);
-                                    return mailStorage.getEmails();
-                                }, function error(response) {
-                                    console.log(response);
-                                })
+                                    return null;
+                                }, function error() {
+                                    return null;
+                                });
                         }
+                    },
+                    page: function ($stateParams) {
+                        return $stateParams.page;
                     }
+
                 }
             });
             $stateProvider.state({

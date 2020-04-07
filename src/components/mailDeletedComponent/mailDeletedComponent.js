@@ -8,7 +8,10 @@
         }
     });
 
-    function mailDeletedController() {
+    function mailDeletedController(mailStorage) {
         var ctrl = this;
+        ctrl.$onInit = function () {
+            ctrl.emails = mailStorage.getEmails();
+        };
     }
 })();

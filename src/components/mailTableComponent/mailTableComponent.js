@@ -8,6 +8,13 @@
     });
     function mailTableController(mailService, $stateParams, mailStorage) {
         var ctrl = this;
+        ctrl.$onInit = function () {
+            console.log(mailStorage.getEmails().length);
+            console.log(mailStorage.getCount());
+            if(mailStorage.getEmails().length < mailStorage.getCount()){
+                ctrl.showMoreMobile= true;
+            }
+        };
         ctrl.checkedAll = false;
         ctrl.arrCheck = [];
         ctrl.checkAll = function () {
@@ -23,12 +30,10 @@
                     ctrl.checkedAll = !ctrl.checkedAll;
                 }
             }
-            console.log(ctrl.arrCheck);
         };
         ctrl.addTable = function () {
             var page = $stateParams.page + 1;
-            var count = localStorage.getItem("pageMailCount") || 3;
-            var emailsArr = [];
+            var count = localStorage.getItem("pageMailCount") || 5;
             return mailService.getMailInbox(page, count)
                 .then( function (response) {
                     if (response.data.response.items.length > 0) {
@@ -39,6 +44,9 @@
                             mailStorage.addEmails(email);
                         }
                         $stateParams.page++;
+                        if(mailStorage.getEmails().length == mailStorage.getCount()){
+                            ctrl.showMoreMobile = false;
+                        }
                         return mailStorage.getEmails();
                     }
                 }, function error(response) {
