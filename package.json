@@ -33,6 +33,7 @@
     "gulp-autoprefixer": "^7.0.1",
     "gulp-imagemin": "^7.1.0",
     "gulp-sourcemaps": "^2.6.5",
-    "imagemin-pngquant": "^8.0.0"
+    "imagemin-pngquant": "^8.0.0",
+    "moment": "^2.24.0"
   }
 }

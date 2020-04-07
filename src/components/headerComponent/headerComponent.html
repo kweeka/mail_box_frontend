@@ -1,40 +1,53 @@
 <header>
     <div class="main_container">
-        <div id="logo">
-            <img src="data:image/svg+xml;base64,
+        <div class="header_container">
+            <div id="logo">
+                <img src="data:image/svg+xml;base64,
 PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMzQ1LjgzNCAzNDUuODM0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzNDUuODM0IDM0NS44MzQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PGc+PGc+Cgk8cGF0aCBkPSJNMzM5Ljc5OCwyNjAuNDI5YzAuMTMtMC4wMjYsMC4yNTctMC4wNjEsMC4zODUtMC4wOTRjMC4xMDktMC4wMjgsMC4yMTktMC4wNTEsMC4zMjYtMC4wODQgICBjMC4xMjUtMC4wMzgsMC4yNDctMC4wODUsMC4zNjktMC4xMjljMC4xMDgtMC4wMzksMC4yMTctMC4wNzQsMC4zMjQtMC4xMTljMC4xMTUtMC4wNDgsMC4yMjYtMC4xMDQsMC4zMzgtMC4xNTcgICBjMC4xMDktMC4wNTIsMC4yMi0wLjEsMC4zMjctMC4xNThjMC4xMDctMC4wNTcsMC4yMDgtMC4xMjIsMC4zMTItMC4xODRjMC4xMDctMC4wNjQsMC4yMTUtMC4xMjQsMC4zMTktMC4xOTQgICBjMC4xMTEtMC4wNzQsMC4yMTQtMC4xNTYsMC4zMjEtMC4yMzZjMC4wOS0wLjA2NywwLjE4Mi0wLjEzLDAuMjctMC4yMDJjMC4xNjItMC4xMzMsMC4zMTYtMC4yNzUsMC40NjYtMC40MjEgICBjMC4wMjctMC4wMjYsMC4wNTYtMC4wNDgsMC4wODMtMC4wNzVjMC4wMjgtMC4wMjgsMC4wNTItMC4wNTksMC4wNzktMC4wODhjMC4xNDQtMC4xNDgsMC4yODQtMC4zLDAuNDE2LTAuNDYgICBjMC4wNzctMC4wOTQsMC4xNDQtMC4xOTIsMC4yMTYtMC4yODljMC4wNzQtMC4xLDAuMTUyLTAuMTk3LDAuMjIxLTAuMzAxYzAuMDc0LTAuMTExLDAuMTM5LTAuMjI2LDAuMjA3LTAuMzQgICBjMC4wNTctMC4wOTYsMC4xMTgtMC4xOSwwLjE3MS0wLjI4OWMwLjA2Mi0wLjExNSwwLjExNC0wLjIzNCwwLjE2OS0wLjM1MWMwLjA0OS0wLjEwNCwwLjEwMS0wLjIwNywwLjE0Ni0wLjMxNCAgIGMwLjA0OC0wLjExNSwwLjA4Ni0wLjIzMiwwLjEyOC0wLjM0OWMwLjA0MS0wLjExNCwwLjA4NS0wLjIyNywwLjEyLTAuMzQzYzAuMDM2LTAuMTE4LDAuMDYyLTAuMjM4LDAuMDkyLTAuMzU4ICAgYzAuMDI5LTAuMTE4LDAuMDYzLTAuMjM0LDAuMDg2LTAuMzUzYzAuMDI4LTAuMTQxLDAuMDQ1LTAuMjgzLDAuMDY1LTAuNDI1YzAuMDE0LTAuMSwwLjAzMy0wLjE5OSwwLjA0My0wLjMgICBjMC4wMjUtMC4yNDksMC4wMzgtMC40OTgsMC4wMzgtMC43NDhWOTIuNzZjMC00LjE0My0zLjM1Ny03LjUtNy41LTcuNWgtMjM2LjI1Yy0wLjA2NiwwLTAuMTMsMC4wMDgtMC4xOTYsMC4wMSAgIGMtMC4xNDMsMC4wMDQtMC4yODUsMC4wMS0wLjQyNywwLjAyMmMtMC4xMTMsMC4wMDktMC4yMjUsMC4wMjItMC4zMzcsMC4wMzdjLTAuMTI4LDAuMDE2LTAuMjU1LDAuMDM1LTAuMzgyLDAuMDU4ICAgYy0wLjExOSwwLjAyMS0wLjIzNywwLjA0Ni0wLjM1NCwwLjA3M2MtMC4xMTksMC4wMjgtMC4yMzgsMC4wNTgtMC4zNTYsMC4wOTJjLTAuMTE3LDAuMDMzLTAuMjMyLDAuMDY5LTAuMzQ2LDAuMTA3ICAgYy0wLjExNywwLjA0LTAuMjM0LDAuMDgyLTAuMzQ5LDAuMTI4Yy0wLjEwOSwwLjA0My0wLjIxNiwwLjA4Ny0wLjMyMiwwLjEzNWMtMC4xMTgsMC4wNTMtMC4yMzUsMC4xMS0wLjM1MSwwLjE2OSAgIGMtMC4wOTksMC4wNTEtMC4xOTYsMC4xMDMtMC4yOTIsMC4xNThjLTAuMTE2LDAuMDY2LTAuMjMsMC4xMzYtMC4zNDMsMC4yMDhjLTAuMDkzLDAuMDYtMC4xODQsMC4xMjItMC4yNzQsMC4xODUgICBjLTAuMTA2LDAuMDc1LTAuMjExLDAuMTUzLTAuMzE0LDAuMjM1Yy0wLjA5NCwwLjA3NS0wLjE4NiwwLjE1Mi0wLjI3NywwLjIzMWMtMC4wOSwwLjA3OS0wLjE3OSwwLjE1OC0wLjI2NiwwLjI0MiAgIGMtMC4wOTksMC4wOTUtMC4xOTQsMC4xOTQtMC4yODgsMC4yOTRjLTAuMDQ3LDAuMDUtMC4wOTcsMC4wOTQtMC4xNDIsMC4xNDVjLTAuMDI3LDAuMDMtMC4wNDgsMC4wNjMtMC4wNzQsMC4wOTMgICBjLTAuMDk0LDAuMTA5LTAuMTgyLDAuMjIzLTAuMjcsMC4zMzhjLTAuMDY0LDAuMDg0LTAuMTMsMC4xNjgtMC4xOSwwLjI1NGMtMC4wNzgsMC4xMTItMC4xNSwwLjIyNy0wLjIyMiwwLjM0MyAgIGMtMC4wNTksMC4wOTUtMC4xMiwwLjE4OS0wLjE3NCwwLjI4NmMtMC4wNjMsMC4xMTItMC4xMTgsMC4yMjctMC4xNzUsMC4zNDJjLTAuMDUyLDAuMTA1LTAuMTA2LDAuMjEtMC4xNTMsMC4zMTcgICBjLTAuMDQ5LDAuMTEzLTAuMDkyLDAuMjMtMC4xMzUsMC4zNDVjLTAuMDQzLDAuMTEzLTAuMDg3LDAuMjI1LTAuMTI0LDAuMzM5Yy0wLjAzNywwLjExNS0wLjA2NywwLjIzMi0wLjA5OSwwLjM0OSAgIGMtMC4wMzIsMC4xMi0wLjA2NiwwLjIzOS0wLjA5MywwLjM2Yy0wLjAyNSwwLjExMy0wLjA0MiwwLjIyOC0wLjA2MiwwLjM0MmMtMC4wMjIsMC4xMy0wLjA0NCwwLjI2LTAuMDYsMC4zOSAgIGMtMC4wMTMsMC4xMDgtMC4wMTksMC4yMTgtMC4wMjcsMC4zMjhjLTAuMDEsMC4xNC0wLjAxOSwwLjI4LTAuMDIxLDAuNDIxYy0wLjAwMSwwLjA0MS0wLjAwNiwwLjA4MS0wLjAwNiwwLjEyMnY0Ni4yNTIgICBjMCw0LjE0MywzLjM1Nyw3LjUsNy41LDcuNXM3LjUtMy4zNTcsNy41LTcuNXYtMjkuNTk1bDY2LjY4MSw1OS4wMzdjLTAuMzQ4LDAuMjQ1LTAuNjgzLDAuNTE2LTAuOTk1LDAuODI3bC02NS42ODcsNjUuNjg3di00OS4yODggICBjMC00LjE0My0zLjM1Ny03LjUtNy41LTcuNXMtNy41LDMuMzU3LTcuNSw3LjV2OS4xNjRoLTM4Ljc1Yy00LjE0MywwLTcuNSwzLjM1Ny03LjUsNy41czMuMzU3LDcuNSw3LjUsNy41aDM4Ljc1djQzLjIzMSAgIGMwLDQuMTQzLDMuMzU3LDcuNSw3LjUsNy41aDIzNi4yNWMwLjI0NywwLDAuNDk0LTAuMDEzLDAuNzQtMC4wMzdjMC4xMTUtMC4wMTEsMC4yMjYtMC4wMzMsMC4zMzktMC4wNDkgICBDMzM5LjU0MiwyNjAuNDY5LDMzOS42NywyNjAuNDU0LDMzOS43OTgsMjYwLjQyOXogTTMzMC44MzQsMjM0Ljk2N2wtNjUuNjg4LTY1LjY4N2MtMC4wNDItMC4wNDItMC4wODctMC4wNzctMC4xMy0wLjExNyAgIGw0OS4zODMtNDEuODk3YzMuMTU4LTIuNjgsMy41NDYtNy40MTIsMC44NjYtMTAuNTcxYy0yLjY3OC0zLjE1Ny03LjQxLTMuNTQ3LTEwLjU3MS0wLjg2NmwtODQuMzgxLDcxLjU5bC05OC40NDQtODcuMTU4aDIwOC45NjUgICBWMjM0Ljk2N3ogTTE4NS44NzgsMTc5Ljg4OGMwLjUzNS0wLjUzNSwwLjk2OS0xLjEzMSwxLjMwOC0xLjc2NWwyOC4wNTEsMjQuODM1YzEuNDE4LDEuMjU1LDMuMTk0LDEuODg1LDQuOTcyLDEuODg1ICAgYzEuNzI2LDAsMy40NTEtMC41OTMsNC44NTMtMS43ODFsMjguNTg3LTI0LjI1NGMwLjI2LDAuMzgsMC41NTMsMC43NDMsMC44OSwxLjA4bDY1LjY4Nyw2NS42ODdIMTIwLjE5MUwxODUuODc4LDE3OS44ODh6IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIHN0eWxlPSJmaWxsOiMwMEFGODAiIGRhdGEtb2xkX2NvbG9yPSIjMDAwMDAwIj48L3BhdGg+Cgk8cGF0aCBkPSJNNy41LDE3MC42NzZoMTI2LjY2N2M0LjE0MywwLDcuNS0zLjM1Nyw3LjUtNy41cy0zLjM1Ny03LjUtNy41LTcuNUg3LjVjLTQuMTQzLDAtNy41LDMuMzU3LTcuNSw3LjUgICBTMy4zNTcsMTcwLjY3Niw3LjUsMTcwLjY3NnoiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6IzAwQUY4MCIgZGF0YS1vbGRfY29sb3I9IiMwMDAwMDAiPjwvcGF0aD4KCTxwYXRoIGQ9Ik0yMC42MjUsMTI5LjM0NUg3Ny41YzQuMTQzLDAsNy41LTMuMzU3LDcuNS03LjVzLTMuMzU3LTcuNS03LjUtNy41SDIwLjYyNWMtNC4xNDMsMC03LjUsMy4zNTctNy41LDcuNSAgIFMxNi40ODIsMTI5LjM0NSwyMC42MjUsMTI5LjM0NXoiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6IzAwQUY4MCIgZGF0YS1vbGRfY29sb3I9IiMwMDAwMDAiPjwvcGF0aD4KCTxwYXRoIGQ9Ik02Mi41LDIyNi41MWgtNTVjLTQuMTQzLDAtNy41LDMuMzU3LTcuNSw3LjVzMy4zNTcsNy41LDcuNSw3LjVoNTVjNC4xNDMsMCw3LjUtMy4zNTcsNy41LTcuNVM2Ni42NDMsMjI2LjUxLDYyLjUsMjI2LjUxeiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBzdHlsZT0iZmlsbDojMDBBRjgwIiBkYXRhLW9sZF9jb2xvcj0iIzAwMDAwMCI+PC9wYXRoPgo8L2c+PC9nPiA8L3N2Zz4="
-                 width="60" height="110"/>
-            <h3 id="name_company">Mail BOX</h3>
-        </div>
-        <div id="search" ng-show="$ctrl.user">
+                     width="60" height="110"/>
+                <h3 id="name_company">Mail BOX</h3>
+            </div>
+            <div class="search" ng-show="$ctrl.user">
                 <input type="text" placeholder="Search"/>
                 <img src="resourses/icons/search.svg"/>
-        </div>
-        <div id="button_reg" ng-show="!$ctrl.user">
+            </div>
+            <div id="button_reg" ng-show="!$ctrl.user">
                 <a href="registration"><input type="button" value="Registration" class="button_short"/></a>
-        </div>
-        <div id="info_user_header" ng-show="$ctrl.user">
-            <span id="user_email_header">{{$ctrl.user.email}}</span>
-            <span id="user_email_header_circle">{{$ctrl.user.email.charAt(0)}}</span>
-        </div>
-        <div id="header_menu">
-            <input type="button" id="button_menu" ng-click="$ctrl.showMobileMenu=!$ctrl.showMobileMenu"/>
+            </div>
+            <div id="info_user_header" ng-show="$ctrl.user" ng-click="$ctrl.menuLogoutPersonal=!$ctrl.menuLogoutPersonal">
+                <span id="user_email_header">{{$ctrl.user.email}}</span>
+                <span id="user_email_header_circle">{{$ctrl.user.email.charAt(0)}}</span>
+            </div>
+            <div id="menu_logout_personal" ng-show="$ctrl.menuLogoutPersonal">
+                <ul>
+                    <li ui-sref="personal" ui-sref-active="active">Personal area</li>
+                    <li ng-click="$ctrl.logout()">Logout</li>
+                </ul>
+            </div>
+            <div id="header_menu">
+                <input type="button" id="button_menu" ng-click="$ctrl.showMobileMenu=!$ctrl.showMobileMenu"/>
+            </div>
         </div>
     </div>
-    <div id="mobile_menu" ng-show="$ctrl.showMobileMenu == true">
-        <ul id="mobile_container_not_auth" class="mobile_container" ng-show="!$ctrl.user">
-            <li class="mobile_button"><a ui-sref="registration">Registration</a></li>
-            <li class="mobile_button mobile_button_not_decor"><a ui-sref="auth">Authorization</a></li>
+    <div id="mobile_container" ng-show="$ctrl.showMobileMenu == true">
+        <ul ng-show="!$ctrl.user">
+            <li><a ui-sref="registration">Registration</a></li>
+            <li><a ui-sref="auth">Authorization</a></li>
         </ul>
-        <ul id="mobile_container_auth" class="mobile_container" ng-show="$ctrl.user">
-            <li class="mobile_button" id="mobile_menu_search">
-                <input type="text" placeholder="Search"/>
-                <span id="mobile_search">
-                    <img src="resourses/icons/search.svg"/>
-                </span>
+        <ul ng-show="$ctrl.user">
+            <li>
+                <div id="mobile_menu_search" class="search">
+                    <div>
+                        <input type="text" placeholder="Search"/>
+                        <img src="resourses/icons/search.svg"/>
+                    </div>
+                </div>
             </li>
-            <li class="mobile_button"><a>Inbox</a></li>
-            <li class="mobile_button mobile_button_not_decor"><a>Outbox</a></li>
+            <li ui-sref-active="active" ng-click="$ctrl.showMobileMenu=!$ctrl.showMobileMenu"><a ui-sref="mail.inbox">Inbox</a></li>
+            <li ui-sref-active="active"><a ui-sref="mail.outbox" ng-click="$ctrl.showMobileMenu=!$ctrl.showMobileMenu">Outbox</a></li>
+            <li ui-sref-active="active"><a ui-sref="mail.deleted" ng-click="$ctrl.showMobileMenu=!$ctrl.showMobileMenu">Deleted</a></li>
+            <li ui-sref-active="active"><a ui-sref="personal" ng-click="$ctrl.showMobileMenu=!$ctrl.showMobileMenu">Personal area</a></li>
+            <li ui-sref-active="active"><a ng-click="$ctrl.logout()">Logout</a></li>
         </ul>
     </div>
 </header>

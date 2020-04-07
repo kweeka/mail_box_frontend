@@ -1,5 +1,6 @@
-#header_personal {
+.header_personal {
     text-align: left;
+    padding-top: 0px;
 }
 
 .form_auth .body_personal {
@@ -9,4 +10,26 @@
 
 .form_auth .body_personal span {
     font-weight: bold;
+}
+
+.personal_area {
+    padding: 20px;
+    background-color: #fafafa;
+    font-size: 20px;
+}
+
+#personal_form {
+    width: 150px;
+    margin-bottom: 52px;
+}
+
+.personal_button {
+    margin: 25px 20px 0px 0px;
+    font-size: 17px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .personal_button {
+        margin: 25px 17px 0px 0px;
+    }
 }

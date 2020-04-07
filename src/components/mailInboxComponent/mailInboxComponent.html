@@ -1,1 +1,10 @@
-<header-component></header-component>
+<div class="mail_menu">
+    <input type="button" value="New mail" ui-sref="mail.new"/>
+    <input type="button" value="Mark as read"/>
+    <input type="button" value="Delete" ng-click="$ctrl.getAllCheck()"/>
+</div>
+<mail-table-component emails="$ctrl.emails"></mail-table-component>
+<bottom-mail-table-component page="$ctrl.page" ng-if="$ctrl.emails.length > 0" emails="$ctrl.emails"></bottom-mail-table-component>
+
+
+

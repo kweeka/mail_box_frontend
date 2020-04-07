@@ -18,6 +18,10 @@
     }
 }
 
+.button_long:hover {
+    background-color: #00936c;
+}
+
 .button_short {
     color: #fafafa;
     border-radius: 5px;
@@ -27,6 +31,10 @@
     width: 104px;
     border: none;
     height: 37px;
+}
+
+.button_short:hover {
+    background-color: #00936c;
 }
 
 #button_menu {
@@ -44,3 +52,33 @@
     background-position: center;
     fill: #fafafa;
 }
+
+#button_menu:hover {
+    background-color: #00936c;
+}
+
+.mail_menu input {
+    width: 95px;
+    color: #fafafa;
+    background-color: #00af80;
+    height: 36px;
+    border-radius: 5px;
+    border: none;
+    margin: 0px 5px;
+    cursor: none;
+    transition: background-color 0.5s;
+}
+
+.mail_menu input:hover {
+    background-color: #00936c;
+}
+
+
+
+
+
+
+
+
+
+

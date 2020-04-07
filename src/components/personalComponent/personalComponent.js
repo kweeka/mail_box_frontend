@@ -1,24 +1,27 @@
 (function () {
    angular.module("mainApp").component("personalComponent", {
        templateUrl: "personalComponent.html",
-       controller: personalController
+       controller: personalController,
+       bindings: {
+           user: "="
+       }
    });
 
-   function personalController(authService, $state, userService) {
+   function personalController(authService, userService, $state) {
        var ctrl = this;
-       (function() {
-           authService.getUserInfo()
-               .then(function success(response) {
-                   userService.setUser(response.data.response.name, response.data.response.email, response.data.response.groups);
-                   ctrl.userName = response.data.response.name;
-                   ctrl.userEmail = response.data.response.email;
-                   ctrl.userGroup = response.data.response.groups;
-                   $state.go("mailInbox");
+       ctrl.saveEdit = function () {
+           authService.updateUserData(ctrl.nameEdit)
+               .then (function success(response) {
+                   console.log(response);
+                   ctrl.showEditForm = !ctrl.showEditForm;
+                   var user = new User(response.data.response.name, response.data.response.email, response.data.response.groups);
+                   userService.setUser(user);
+                   $state.reload();
+                   return userService.getUser();
                }, function error(response) {
                    console.log(response);
-                   $state.go("auth");
+                   return null;
                })
-       })();
-
+       };
    }
 })();

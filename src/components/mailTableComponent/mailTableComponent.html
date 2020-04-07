@@ -1,0 +1,68 @@
+<table id="mail_table" ng-show="$ctrl.emails && !($ctrl.emails.length === 0)" class="desktop_table_mail">
+    <tr class="mail_table_tr">
+        <td class="checkbox_mail"><input type="checkbox" ng-model="$ctrl.checkedAll"/>
+        <span class="highlight_all_mail_flag_checkbox" ng-click="$ctrl.checkAll()">
+            <span ng-class="{highlight_all_mail_flag_checkbox_icon: $ctrl.checkedAll}"></span>
+        </span>
+        </td>
+        <td class="sender_table">Sender</td>
+        <td class="text_table"><span>Text</span>
+        </td>
+        <td class="date_table">Date</td>
+    </tr>
+    <tr ng-repeat="email in $ctrl.emails| filter:$ctrl.filter" class="mail_table_tr">
+        <td class="checkbox_mail"><input type="checkbox" ng-model="email.checked"/>
+            <span class="highlight_all_mail_flag_checkbox" ng-click="email.checked=!email.checked">
+                <span ng-class="{highlight_all_mail_flag_checkbox_icon: email.checked}"></span>
+            </span>
+        </td>
+        <td class="sender_table">
+            <span class="spender_email_circle">{{email.sender.charAt(0)}}</span>
+            <span class="sender_table_sender">{{email.sender}}</span>
+        </td>
+        <td class="text_table" ui-sref="mail.open({mailId: email.id})">
+            <span class="subject_table"><b>{{email.subject}}</b></span><span class="text_table_cut">{{email.text}}</span>
+        </td>
+        <td class="date_table">{{email.dateTime | emailDateFilter}}</td>
+    </tr>
+</table>
+<div class="bubblingG" ng-show="$ctrl.emails === null">
+    <span id="bubblingG_1"></span>
+    <span id="bubblingG_2"></span>
+    <span id="bubblingG_3"></span>
+</div>
+<div id="mail_table_no_mail" ng-show="$ctrl.emails.length === 0">There are no mails</div>
+<div id="mobile_table_mail">
+    <div class="mobile_table" ng-repeat="email in $ctrl.emails">
+        <div class="checkbox_mobile_table"><input type="checkbox" ng-model="email.checked"/></div>
+        <div class="body_mobile_table" ui-sref="mail.open({mailId: email.id})">
+            <div class="sender_data_mobile">
+                <div class="sender_mobile_table">{{email.sender}}</div>
+                <div class="date_mobile_table">{{email.dateTime | emailDateFilter}}</div>
+            </div>
+            <div>
+                <div class="subject_mobile_table"><b>{{email.subject}}</b></div>
+                <div class="text_mobile_table twitter-list">{{email.text}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="add_mails_table_mobile" ng-if="$ctrl.showMoreMobile">
+    <input type="button" value="more" ng-click="$ctrl.addTable()"/>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

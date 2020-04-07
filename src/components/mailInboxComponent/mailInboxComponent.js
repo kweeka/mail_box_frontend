@@ -2,19 +2,35 @@
     angular.module("mainApp")
         .component("mailInboxComponent",{
             templateUrl: "mailInboxComponent.html",
-            controller: mailInboxController
+            controller: mailInboxController,
+            bindings: {
+                emails: "=",
+                page: "="
+            }
         });
 
-    function mailInboxController(authService, $state, userService) {
+    function mailInboxController(mailService, $state, mailStorage, $timeout) {
         var ctrl = this;
-        /*if (localStorage.getItem("authToken")) {
-            authService.getUserInfo()
-                .then(function success(response) {
-                    userService.setUser(response.data.response.name, response.data.response.email, response.data.response.groups);
+        ctrl.$onInit = function () {
+            $timeout(function () {
+                ctrl.emails = mailStorage.getEmails();
+                console.log(mailStorage.getEmails());
+            }, 3000);
+        };
+        ctrl.arrCheck = [];
+        ctrl.getAllCheck = function () {
+            for(var y=0; y < ctrl.emails.length; y++){
+                if(ctrl.emails[y].checked == true){
+                    ctrl.arrCheck.push(ctrl.emails[y].id);
+                }
+            }
+            mailService.deleteMailInbox(ctrl.arrCheck)
+                .then (function success(response) {
+                    console.log(response);
+                    $state.reload();
                 }, function error(response) {
                     console.log(response);
-                    $state.go("auth");
-                })
-        }*/
+                });
+        };
     }
 })();

@@ -1,9 +1,9 @@
-h1, h2, h3, p, input, div {
+h1, h2, h3, p, input, div, ul, li, a {
     font-family: Geneva;
     margin: 0px;
 }
 
-input {
+input, textarea{
     outline:none;
 }
 
@@ -12,7 +12,7 @@ body {
     width: 100%;
 }
 
-a, a:hover, a:active, a:visited, a:link{
+a {
     cursor: pointer;
     border-bottom: 1px dotted #cdcccc;
     color: #bababa;
@@ -34,17 +34,30 @@ a, a:hover, a:active, a:visited, a:link{
     }
 }
 
-#personal_area {
-    width: 1140px;
-    margin: 53px auto;
-    height: 212px;
-    padding: 20px;
-}
-
 ul {
     list-style: none;
     padding: 0px;
     vertical-align:middle;
     margin: 0px;
-
 }
+
+#body_mail {
+    width: 100%;
+}
+
+#mail_all {
+    display: flex;
+    align-items: flex-start;
+    height: auto;
+}
+
+.mail_menu {
+    display: flex;
+    align-items: center;
+    margin: 0px 10px;
+}
+
+
+
+
+

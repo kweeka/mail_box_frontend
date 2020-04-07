@@ -1,7 +1,19 @@
 <header-component></header-component>
-<div class="form_auth" id="personal_area">
-    <h3 class="header_form" id="header_personal">Personal area</h3>
-    <p class="body_personal"><span>Name:</span> {{$ctrl.userName}}</p>
-    <p class="body_personal"><span>Email:</span> {{$ctrl.userEmail}}</p>
-    <p class="body_personal"><span>Group:</span> {{$ctrl.userGroup}}</p>
+<div class="main_container">
+    <div class="personal_area" ng-show="!$ctrl.showEditForm">
+        <h3 class="header_form header_personal">Personal area</h3>
+        <p class="body_personal"><span>Name:</span> {{$ctrl.user.name}}</p>
+        <p class="body_personal"><span>Email:</span> {{$ctrl.user.email}}</p>
+        <p class="body_personal"><span>Group:</span> {{$ctrl.user.group}}</p>
+        <input type="button" value="Update" class="button_short personal_button" ng-click="$ctrl.showEditForm = !$ctrl.showEditForm"/>
+        <input type="button" value="Mail" class="button_short personal_button" ui-sref="mail.inbox"/>
+    </div>
+    <div class="personal_area" ng-show="$ctrl.showEditForm">
+        <h3 class="header_form header_personal">Edit personal area</h3>
+        <div id="personal_form">
+            <input-component placeholder="$ctrl.user.name" value="$ctrl.nameEdit" error="$ctrl.errorName" type="'text'"></input-component>
+        </div>
+        <input type="button" value="Save" class="button_short personal_button" ng-click="$ctrl.saveEdit()"/>
+        <input type="button" value="Cancel" class="button_short personal_button" ng-click="$ctrl.showEditForm = !$ctrl.showEditForm"/>
+    </div>
 </div>

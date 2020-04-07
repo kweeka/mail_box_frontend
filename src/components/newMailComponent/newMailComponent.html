@@ -1,0 +1,13 @@
+<div class="new_mail_form" >
+    <div class="mail_menu mobile_menu_show">
+        <h3>New mail</h3>
+        <input type="button" value="Send" ng-click="$ctrl.sendMail()"/>
+        <input type="button" value="Save as draft"/>
+    </div>
+    <div id="new_mail_form">
+        <input-component placeholder="'To'" value="$ctrl.recipient" error="$ctrl.errorRecipient" type="'text'"><span class="spender_email_circle">{{$ctrl.recipient.charAt(0)}}</span>
+        </input-component></br>
+        <input-component placeholder="'Subject'" value="$ctrl.subject" error="$ctrl.errorSubject" type="'text'"></input-component></br>
+        <textarea placeholder="Text" class="form_field" ng-model="$ctrl.text"></textarea>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+#body_open_mail {
+    white-space: pre-wrap;
+    border-top: 1px dotted #cdcccc;
+    padding: 10px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    #body_open_mail {
+        padding: 0px;
+    }
+}
+
+#subject_open_mail span{
+    font-weight: bold;
+    color: #3f3f3f;;
+}
+
+#subject_open_mail {
+    color: rgba(0,0,0,0.5);
+    margin: 0px 0px 10px 0px;
+}
+
+#open_mail {
+    margin: 20px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    #open_mail {
+        margin: 0px;
+    }
+}
+
+.menu_open_mail {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    padding: 0px 10px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .menu_open_mail {
+        padding: 0px;
+    }
+}
+
+#date_open_mail {
+    line-height: 37px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    #date_open_mail {
+        height: 33px;
+        line-height: 36px;
+    }
+}
+
+#sender_open_mail {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#sender_open_mail span{
+    margin: 0px 15px 0px 0px;
+}

@@ -1,0 +1,17 @@
+.new_mail_form {
+    padding: 0px 0px 0px 20px;
+}
+
+.new_mail_form h3 {
+    font-size: 23px;
+    margin-right: 56px;
+    color: #6a6a6a;
+}
+
+#new_mail_form {
+    padding-top: 20px;
+}
+
+#new_mail_form textarea{
+    height: 115px;
+}
