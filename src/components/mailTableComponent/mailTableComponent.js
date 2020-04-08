@@ -9,8 +9,6 @@
     function mailTableController(mailService, $stateParams, mailStorage) {
         var ctrl = this;
         ctrl.$onInit = function () {
-            console.log(mailStorage.getEmails().length);
-            console.log(mailStorage.getCount());
             if(mailStorage.getEmails().length < mailStorage.getCount()){
                 ctrl.showMoreMobile= true;
             }
