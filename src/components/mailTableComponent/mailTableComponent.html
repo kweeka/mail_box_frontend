@@ -18,10 +18,10 @@
         </td>
         <td class="sender_table">
             <span class="spender_email_circle">{{email.sender.charAt(0)}}</span>
-            <span class="sender_table_sender">{{email.sender}}</span>
+            <span class="sender_table_sender" ng-class="{read_mail: email.read}">{{email.sender}}</span>
         </td>
         <td class="text_table" ui-sref="mail.open({mailId: email.id})">
-            <span class="subject_table"><b>{{email.subject}}</b></span><span class="text_table_cut">{{email.text}}</span>
+            <span class="subject_table" ng-class="{read_mail: email.read}">{{email.subject}}</span><span class="text_table_cut">{{email.text}}</span>
         </td>
         <td class="date_table">{{email.dateTime | emailDateFilter}}</td>
     </tr>

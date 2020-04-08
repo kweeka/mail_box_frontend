@@ -203,6 +203,7 @@
 
 .subject_table {
     padding-right: 5px;
+    font-weight: bold;
 }
 
 #mail_table_no_mail {
@@ -262,9 +263,12 @@ table input {
     height: 24px;
     white-space: nowrap;
     width: 100%;
+    font-weight: bold;
 }
 
-
+.read_mail {
+    font-weight: normal;
+}
 
 
 
