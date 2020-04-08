@@ -4,7 +4,8 @@
         controller: mailMenuController
     });
 
-    function mailMenuController() {
+    function mailMenuController(mailStorage) {
         var ctrl = this;
+        ctrl.count = mailStorage.getCount();
     }
 })();
