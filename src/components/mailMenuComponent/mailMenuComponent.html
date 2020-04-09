@@ -1,5 +1,12 @@
 <ul id="mail_menu_desktop">
-    <li ui-sref-active="active"><a ui-sref="mail.inbox"><span>Inbox</span><span>{{$ctrl.countUnreadInbox}}</span></a></li>
+    <li ui-sref-active="active">
+        <a ui-sref="mail.inbox">
+            <span id="menu_inbox">Inbox</span>
+            <span class="spender_email_count_circle">
+                <span id="menu_inbox_unread">{{$ctrl.countUnreadInbox}}</span>
+            </span>
+        </a>
+    </li>
     <li ui-sref-active="active"><a ui-sref="mail.outbox">Outbox</a></li>
     <li ui-sref-active="active"><a ui-sref="mail.deleted">Deleted</a></li>
 </ul>

@@ -42,3 +42,18 @@
 #mail_menu_desktop li:last-child{
     border-bottom: none;
 }
+
+.spender_email_count_circle {
+    color: #fcfcfc;
+    background-color: #951616;
+    line-height: 21px;
+    height: 19px;
+    width: 19px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 15px;
+    top: -6px;
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+}
