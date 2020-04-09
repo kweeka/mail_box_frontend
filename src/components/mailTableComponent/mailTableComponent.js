@@ -9,9 +9,7 @@
     function mailTableController(mailService, $stateParams, mailStorage) {
         var ctrl = this;
         ctrl.$onInit = function () {
-            console.log(mailStorage.getEmails().length);
-            console.log(mailStorage.getCount());
-            if(mailStorage.getEmails().length < mailStorage.getCount()){
+            if(mailStorage.getEmails().length < mailStorage.getCountInbox()){
                 ctrl.showMoreMobile= true;
             }
         };
@@ -44,7 +42,7 @@
                             mailStorage.addEmails(email);
                         }
                         $stateParams.page++;
-                        if(mailStorage.getEmails().length == mailStorage.getCount()){
+                        if(mailStorage.getEmails().length == mailStorage.getCountInbox()){
                             ctrl.showMoreMobile = false;
                         }
                         return mailStorage.getEmails();

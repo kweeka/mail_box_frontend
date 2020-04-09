@@ -4,7 +4,8 @@
         controller: bottomMailTableController,
         bindings: {
             page: "<",
-            emails: "="
+            emails: "=",
+            qwe: "<"
         }
     });
 
@@ -16,9 +17,6 @@
         };
         ctrl.transition = function () {
             $state.go("mail.inbox", {page: ctrl.page});
-        };
-        ctrl.getCount = function () {
-            return mailStorage.getCount();
         };
         ctrl.$onInit = function () {
             ctrl.count = localStorage.getItem("pageMailCount");
@@ -34,7 +32,7 @@
             if (ctrl.page === 1 ) {
                 ctrl.earlyPageLimit = false;
             }
-            if (ctrl.lastMail == ctrl.getCount()){
+            if (ctrl.lastMail == ctrl.qwe){
                 ctrl.nextPageLimit = false;
             }
             /*

@@ -127,7 +127,8 @@
                                             $state.go("mail.inbox", {page: page - 1});
                                         }
                                     }
-                                    mailStorage.setEmails(emailsArr, response.data.response.count);
+                                    mailStorage.setEmails(emailsArr, response.data.response.count_inbox, response.data.response.count_outbox, response.data.response.count_deleted,
+                                        response.data.response.count_unread);
                                     return null;
                                 }, function error() {
                                     return null;
