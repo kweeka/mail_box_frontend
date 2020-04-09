@@ -42,7 +42,7 @@
                             mailStorage.addEmails(email);
                         }
                         $stateParams.page++;
-                        if(mailStorage.getEmails().length == mailStorage.getCountInbox()){
+                        if(mailStorage.getEmails().length == mailStorage.getCount()){
                             ctrl.showMoreMobile = false;
                         }
                         return mailStorage.getEmails();

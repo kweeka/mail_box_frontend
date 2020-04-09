@@ -53,21 +53,7 @@
 }
 
 .text_table_cut{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    height: 24px;
-    white-space: nowrap;
     width: 100%;
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-    .text_table_cut{
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 100%;
-        white-space: nowrap;
-        width: 100%;
-    }
 }
 
 .text_table {
@@ -165,18 +151,13 @@
         justify-content: space-between;
     }
     .checkbox_mobile_table {
-        margin-right: 10px;
+        margin-right: 13px;
         align-self: center;
-        width: 10%;
     }
     .mail_menu {
         display: none;
     }
     .text_mobile_table {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        height: 24px;
-        white-space: nowrap;
         width: 100%;
     }
 
@@ -203,6 +184,13 @@
 
 .subject_table {
     padding-right: 5px;
+    font-weight: bold;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .subject_table {
+        width: 100%;
+    }
 }
 
 #mail_table_no_mail {
@@ -252,21 +240,29 @@ table input {
     font-size: 11pt;
 }
 
+.sender_mobile_table {
+    width: 70%;
+}
+
 .mail_table_tr {
     display: flex;
 }
 
 .sender_table_sender {
+    width: 100%;
+    font-weight: bold;
+}
+
+.read_mail {
+    font-weight: normal;
+}
+
+.cut_text {
     overflow: hidden;
     text-overflow: ellipsis;
     height: 24px;
     white-space: nowrap;
-    width: 100%;
 }
-
-
-
-
 
 
 

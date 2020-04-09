@@ -18,10 +18,10 @@
         </td>
         <td class="sender_table">
             <span class="spender_email_circle">{{email.sender.charAt(0)}}</span>
-            <span class="sender_table_sender">{{email.sender}}</span>
+            <span class="sender_table_sender cut_text" ng-class="{read_mail: email.read}">{{email.sender}}</span>
         </td>
         <td class="text_table" ui-sref="mail.open({mailId: email.id})">
-            <span class="subject_table"><b>{{email.subject}}</b></span><span class="text_table_cut">{{email.text}}</span>
+            <span class="subject_table" ng-class="{read_mail: email.read, cut_text: email.cut}">{{email.subject}}</span><span class="text_table_cut cut_text">{{email.text}}</span>
         </td>
         <td class="date_table">{{email.dateTime | emailDateFilter}}</td>
     </tr>
@@ -37,12 +37,12 @@
         <div class="checkbox_mobile_table"><input type="checkbox" ng-model="email.checked"/></div>
         <div class="body_mobile_table" ui-sref="mail.open({mailId: email.id})">
             <div class="sender_data_mobile">
-                <div class="sender_mobile_table">{{email.sender}}</div>
+                <div class="sender_mobile_table cut_text">{{email.sender}}</div>
                 <div class="date_mobile_table">{{email.dateTime | emailDateFilter}}</div>
             </div>
             <div>
-                <div class="subject_mobile_table"><b>{{email.subject}}</b></div>
-                <div class="text_mobile_table twitter-list">{{email.text}}</div>
+                <div class="subject_mobile_table cut_text"><b>{{email.subject}}</b></div>
+                <div class="text_mobile_table cut_text twitter-list">{{email.text}}</div>
             </div>
         </div>
     </div>

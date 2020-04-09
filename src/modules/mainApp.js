@@ -115,9 +115,13 @@
                                 .then(function success(response) {
                                     if (response.data.response.items.length) {
                                         for (var i = 0; i < response.data.response.items.length; i++) {
+                                            console.log(response.data.response.items[i].subject.length);
+                                            if(response.data.response.items[i].subject.length > 20){
+                                                var cut = true;
+                                            } else cut = false;
                                             var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
-                                                response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].read,
-                                                new Date(response.data.response.items[i].date));
+                                                response.data.response.items[i].sender, response.data.response.items[i].message,response.data.response.items[i].is_opened,
+                                                new Date(response.data.response.items[i].date), cut);
                                             console.log(email);
                                             emailsArr.push(email);
                                         }
@@ -168,7 +172,7 @@
                                     if (response.data.response.items.length) {
                                         for (var i = 0; i < response.data.response.items.length; i++) {
                                             var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
-                                                response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].read,
+                                                response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].is_opened,
                                                 new Date(response.data.response.items[i].date));
                                             console.log(email);
                                             emailsArr.push(email);
