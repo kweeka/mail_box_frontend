@@ -5,11 +5,11 @@
         bindings: {
             page: "<",
             emails: "=",
-            qwe: "<"
+            allCount: "<"
         }
     });
 
-    function bottomMailTableController($state, mailStorage) {
+    function bottomMailTableController($state) {
         var ctrl = this;
         ctrl.getMailValMails = function () {
             localStorage.setItem("pageMailCount", ctrl.sele);
@@ -32,7 +32,7 @@
             if (ctrl.page === 1 ) {
                 ctrl.earlyPageLimit = false;
             }
-            if (ctrl.lastMail == ctrl.qwe){
+            if (ctrl.lastMail == ctrl.allCount){
                 ctrl.nextPageLimit = false;
             }
             /*

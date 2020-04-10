@@ -108,21 +108,19 @@
                 resolve: {
                     emails: function (mailStorage, mailService, $stateParams, $state) {
                         var page = $stateParams.page || 1;
-                        var count = localStorage.getItem("pageMailCount") || 3;
+                        var count = localStorage.getItem("pageMailCount") || 5;
                         var emailsArr = [];
                         if (localStorage.getItem("authToken")) {
                             return mailService.getMailInbox(page, count)
                                 .then(function success(response) {
                                     if (response.data.response.items.length) {
                                         for (var i = 0; i < response.data.response.items.length; i++) {
-                                            console.log(response.data.response.items[i].subject.length);
                                             if(response.data.response.items[i].subject.length > 20){
                                                 var cut = true;
                                             } else cut = false;
                                             var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
                                                 response.data.response.items[i].sender, response.data.response.items[i].message,response.data.response.items[i].is_opened,
                                                 new Date(response.data.response.items[i].date), cut);
-                                            console.log(email);
                                             emailsArr.push(email);
                                         }
                                     }
@@ -164,30 +162,33 @@
                 resolve: {
                     emails: function (mailStorage, mailService, $stateParams, $state) {
                         var page = $stateParams.page || 1;
-                        var count = localStorage.getItem("pageMailCount") || 3;
+                        var count = localStorage.getItem("pageMailCount") || 5;
                         var emailsArr = [];
-                        if (localStorage.getItem("authToken")) {
-                            return mailService.getMailDeletedInbox(1, 1)
-                                .then(function success(response) {
-                                    if (response.data.response.items.length) {
-                                        for (var i = 0; i < response.data.response.items.length; i++) {
-                                            var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
-                                                response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].is_opened,
-                                                new Date(response.data.response.items[i].date));
-                                            console.log(email);
-                                            emailsArr.push(email);
+                        if(localStorage.getItem("authToken")){
+                            return mailService.deleteMailInbox(page, count)
+                                .then (function success(response) {
+                                        if(response.data.response.items.length){
+                                            for (var i = 0; i < response.data.response.items.length; i++) {
+                                                if(response.data.response.items[i].subject.length > 20){
+                                                    var cut = true;
+                                                } else cut = false;
+                                                var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
+                                                    response.data.response.items[i].sender, response.data.response.items[i].message,response.data.response.items[i].is_opened,
+                                                    new Date(response.data.response.items[i].date), cut);
+                                                emailsArr.push(email);
+                                            }
+                                        } else {
+                                            if (page !== 1 && response.data.response.items.length == 0) {
+                                                $state.go("mail.deleted", {page: page - 1});
+                                            }
                                         }
+                                            mailStorage.setEmails(emailsArr, response.data.response.count_inbox, response.data.response.count_outbox, response.data.response.count_deleted,
+                                                response.data.response.count_unread);
+                                            return null;
+                                    }, function error() {
+                                        return null;
                                     }
-                                    else {
-                                        if (page !== 1 && response.data.response.items.length == 0){
-                                            $state.go("mail.inbox", {page: page - 1});
-                                        }
-                                    }
-                                    mailStorage.setEmails(emailsArr);
-                                    return null;
-                                }, function error() {
-                                    return null;
-                                });
+                                )
                         }
                     },
                     page: function ($stateParams) {
