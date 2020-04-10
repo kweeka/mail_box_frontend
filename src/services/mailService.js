@@ -12,10 +12,10 @@
                     }
                 })
             },
-            getMailDeletedInbox: function (email_page, email_page_del) {
+            getMailDeletedInbox: function (email_page, count) {
                 return $http ({
                     method: "GET",
-                    url: apiUrl + "/api/v1/mail/inbox?page=" + email_page + "&deleted=" + email_page_del,
+                    url: apiUrl + "/api/v1/mail/deleted?page=" + email_page + "&count=" + count,
                     headers: {
                         'Authorization': 'Bearer ' + localStorage.getItem("authToken")
                     }

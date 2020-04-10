@@ -15,7 +15,7 @@
             $timeout(function () {
                 ctrl.emails = mailStorage.getEmails();
             }, 3000);
-            ctrl.qwe = mailStorage.getCountInbox();
+            ctrl.allCount = mailStorage.getCountInbox();
         };
         ctrl.arrCheck = [];
         ctrl.getAllCheck = function () {
