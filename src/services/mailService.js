@@ -54,7 +54,7 @@
             }
         }
     }])
-        .constant ("apiUrl", "https://dev1.agafonov.me")
+        .constant("apiUrl", "http://mail-backend.agafonov.me/");
 })();
 
 

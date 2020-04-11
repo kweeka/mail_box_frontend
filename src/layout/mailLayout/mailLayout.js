@@ -13,6 +13,6 @@
             if(!ctrl.user){
                 $state.go("auth");
             }
-        }
+        };
     }
 })();
