@@ -19,7 +19,6 @@
                 ctrl.errorSubject = "Not correct";
                 return;
             }
-            console.log(ctrl.text);
             mailService.sendMail(ctrl.recipient, ctrl.subject, ctrl.text)
                 .then (function (response) {
                     console.log(response);
