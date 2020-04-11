@@ -165,7 +165,7 @@
                         var count = localStorage.getItem("pageMailCount") || 5;
                         var emailsArr = [];
                         if(localStorage.getItem("authToken")){
-                            return mailService.deleteMailInbox(page, count)
+                            return mailService.getMailDeletedInbox(page, count)
                                 .then (function success(response) {
                                         if(response.data.response.items.length){
                                             for (var i = 0; i < response.data.response.items.length; i++) {
