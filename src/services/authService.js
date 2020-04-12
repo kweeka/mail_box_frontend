@@ -1,7 +1,6 @@
 (function () {
     angular.module("apiModule")
         .factory("authService", ["$http", "apiUrl", function ($http, apiUrl) {
-            this.apiUrl = apiUrl;
             return {
                 auth: function (email, password, token_type) {
                     return $http ({
@@ -47,5 +46,4 @@
                 }
             }
         }])
-        .constant("apiUrl", "http://mail-backend.agafonov.me/");
 })();

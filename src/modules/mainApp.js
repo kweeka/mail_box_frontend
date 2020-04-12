@@ -259,7 +259,9 @@
                 component: "openMailComponent"
             });
             $urlRouterProvider.otherwise("/mail/inbox");
-        }]);
+        }
+        ])
+        .constant("apiUrl", "http://mail-backend.agafonov.me/");
 })();
 
 
