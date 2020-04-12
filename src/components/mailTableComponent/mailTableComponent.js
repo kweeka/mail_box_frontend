@@ -6,15 +6,13 @@
             emails: "=",
             countMailBox: "<",
             emailState: "<",
-            showMoreMobile: "="
+            showMoreMobile: "=",
+            outboxTable: "<"
         }
     });
     function mailTableController(mailService, $stateParams, mailStorage) {
         var ctrl = this;
         ctrl.$onInit = function () {
-            /*if(mailStorage.getEmails().length < mailStorage.getCountInbox()){
-                ctrl.showMoreMobile= true;
-            }*/
         };
         ctrl.checkedAll = false;
         ctrl.arrCheck = [];
