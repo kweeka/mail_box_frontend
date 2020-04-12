@@ -21,6 +21,15 @@
                     }
                 })
             },
+            getMailOutbox: function (email_page, count) {
+                return $http ({
+                    method: "GET",
+                    url: apiUrl + "/api/v1/mail/outbox?page=" + email_page + "&count=" + count,
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem("authToken")
+                    }
+                })
+            },
             deleteMailInbox: function (arr) {
                 return $http ({
                     method: "DELETE",

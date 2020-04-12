@@ -42,7 +42,8 @@
                             mailStorage.addEmails(email);
                         }
                         $stateParams.page++;
-                        if(mailStorage.getEmails().length == mailStorage.getCount()){
+                        console.log(mailStorage.getEmails().length);
+                        if(mailStorage.getEmails().length){
                             ctrl.showMoreMobile = false;
                         }
                         return mailStorage.getEmails();

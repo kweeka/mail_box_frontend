@@ -146,7 +146,50 @@
             $stateProvider.state({
                 name: "mail.outbox",
                 url: "/outbox",
-                component: "mailOutboxComponent"
+                component: "mailOutboxComponent",
+                params: {
+                    page: {
+                        value: 1,
+                        squash:true,
+                        type: "int"
+                    }
+                },
+                resolve: {
+                    emails: function (mailStorage, mailService, $stateParams, $state) {
+                        var page = $stateParams.page || 1;
+                        var count = localStorage.getItem("pageMailCount") || 5;
+                        var emailsArr = [];
+                        if(localStorage.getItem("authToken")){
+                            return mailService.getMailOutbox(page, count)
+                                .then (function success(response) {
+                                        if(response.data.response.items.length){
+                                            for (var i = 0; i < response.data.response.items.length; i++) {
+                                                if(response.data.response.items[i].subject.length > 20){
+                                                    var cut = true;
+                                                } else cut = false;
+                                                var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
+                                                    response.data.response.items[i].sender, response.data.response.items[i].message,response.data.response.items[i].is_opened,
+                                                    new Date(response.data.response.items[i].date), cut);
+                                                emailsArr.push(email);
+                                            }
+                                        } else {
+                                            if (page !== 1 && response.data.response.items.length == 0) {
+                                                $state.go("mail.deleted", {page: page - 1});
+                                            }
+                                        }
+                                        mailStorage.setEmails(emailsArr, response.data.response.count_inbox, response.data.response.count_outbox, response.data.response.count_deleted,
+                                            response.data.response.count_unread);
+                                        return null;
+                                    }, function error() {
+                                        return null;
+                                    }
+                                )
+                        }
+                    },
+                    page: function ($stateParams) {
+                        return $stateParams.page;
+                    }
+                }
             });
             $stateProvider.state({
                 name: "mail.deleted",
