@@ -5,7 +5,7 @@
         </select>
     </div>
     <div id="change_page">
-        <div ng-click="[$ctrl.page = ($ctrl.page - 1), $ctrl.transition()]" ng-show="$ctrl.earlyPageLimit"><a><<</a></div>
+        <div ng-click="[$ctrl.page = ($ctrl.page - 1), $ctrl.transition()]" ng-show="$ctrl.showArrowLast"><a><<</a></div>
         <div>
             <span>
                 <span>{{$ctrl.firstMail}}</span>
@@ -15,6 +15,6 @@
             of
             <span>{{$ctrl.allCount}}</span>
         </div>
-        <div ng-click="[$ctrl.page = ($ctrl.page + 1), $ctrl.transition()]" ng-show="$ctrl.nextPageLimit"><a>>></a></div>
+        <div ng-click="[$ctrl.page = ($ctrl.page + 1), $ctrl.transition()]" ng-show="$ctrl.showArrowNext"><a>>></a></div>
     </div>
 </div>

@@ -5,7 +5,8 @@
         bindings: {
             page: "<",
             emails: "=",
-            allCount: "<"
+            allCount: "<",
+            emailState: "<"
         }
     });
 
@@ -16,7 +17,7 @@
             $state.reload();
         };
         ctrl.transition = function () {
-            $state.go("mail.inbox", {page: ctrl.page});
+            $state.go("mail." + ctrl.emailState, {page: ctrl.page});
         };
         ctrl.$onInit = function () {
             ctrl.count = localStorage.getItem("pageMailCount");
@@ -25,15 +26,15 @@
             } else {
                 ctrl.sele = 10;
             }
-            ctrl.nextPageLimit = true;
-            ctrl.earlyPageLimit = true;
-            ctrl.firstMail = (ctrl.emails.length + ((ctrl.page-1) * ctrl.count - ctrl.emails.length + 1));
+            ctrl.showArrowNext = true;
+            ctrl.showArrowLast = true;
+            ctrl.firstMail = ((ctrl.page-1) * ctrl.count + 1);
             ctrl.lastMail = ctrl.emails.length + ((ctrl.page-1) * ctrl.count);
             if (ctrl.page === 1 ) {
-                ctrl.earlyPageLimit = false;
+                ctrl.showArrowLast = false;
             }
             if (ctrl.lastMail == ctrl.allCount){
-                ctrl.nextPageLimit = false;
+                ctrl.showArrowNext = false;
             }
             /*
             if(ctrl.page === 1 ){

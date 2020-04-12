@@ -1,4 +1,7 @@
 <div class="mail_menu">
-    <input type="button" value="Deleted"/>
+    <input type="button" value="Delete"/>
 </div>
 <mail-table-component emails="$ctrl.emails"></mail-table-component>
+<bottom-mail-table-component page="$ctrl.page" ng-if="$ctrl.emails.length > 0" emails="$ctrl.emails" all-count="$ctrl.allCount" email-state="'outbox'">
+
+</bottom-mail-table-component>

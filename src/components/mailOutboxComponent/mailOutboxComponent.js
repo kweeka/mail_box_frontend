@@ -3,11 +3,16 @@
         templateUrl: "mailOutboxComponent.html",
         controller: mailOutboxController,
         bindings: {
-            user: "="
+            emails: "=",
+            page: "="
         }
         });
 
-    function mailOutboxController() {
+    function mailOutboxController(mailStorage) {
         var ctrl = this;
+        ctrl.$onInit = function () {
+            ctrl.emails = mailStorage.getEmails();
+            ctrl.allCount = mailStorage.getCountOutbox();
+        };
     }
 })();
