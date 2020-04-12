@@ -1,7 +1,6 @@
 (function () {
     angular.module("apiModule")
         .factory("mailService", ["$http", "apiUrl", function ($http, apiUrl) {
-        this.apiUrl = apiUrl;
         return {
             getMailInbox: function (email_page, count) {
                 return $http ({
@@ -63,7 +62,6 @@
             }
         }
     }])
-        .constant("apiUrl", "http://mail-backend.agafonov.me/");
 })();
 
 
