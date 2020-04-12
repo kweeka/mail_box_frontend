@@ -12,7 +12,10 @@
         var ctrl = this;
         ctrl.$onInit = function () {
             ctrl.emails = mailStorage.getEmails();
-            ctrl.allCount = mailStorage.getCountOutbox();
+            ctrl.countMailBox = mailStorage.getCountOutbox();
+            if(mailStorage.getEmails().length < mailStorage.getCountOutbox()){
+                ctrl.showMoreMobile= true;
+            }
         };
     }
 })();

@@ -1,5 +1,6 @@
 <div class="mail_menu">
     <input type="button" value="Reestablish"/>
 </div>
-<mail-table-component emails="$ctrl.emails"></mail-table-component>
+<mail-table-component emails="$ctrl.emails" count-mail-box="$ctrl.countMailBox" email-state="'Deleted'" show-more-mobile="$ctrl.showMoreMobile">
+</mail-table-component>
 <bottom-mail-table-component page="$ctrl.page" ng-if="$ctrl.emails.length > 0" emails="$ctrl.emails"></bottom-mail-table-component>

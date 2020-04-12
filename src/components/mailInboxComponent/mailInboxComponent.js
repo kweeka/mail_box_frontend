@@ -16,6 +16,9 @@
                 ctrl.emails = mailStorage.getEmails();
             }, 3000);
             ctrl.allCount = mailStorage.getCountInbox();
+            if(mailStorage.getEmails().length < mailStorage.getCountInbox()){
+                ctrl.showMoreMobile= true;
+            }
         };
         ctrl.arrCheck = [];
         ctrl.getAllCheck = function () {
