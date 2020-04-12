@@ -1,7 +1,7 @@
 <div class="mail_menu">
     <input type="button" value="Delete"/>
 </div>
-<mail-table-component emails="$ctrl.emails" count-mail-box="$ctrl.countMailBox" email-state="'Outbox'" show-more-mobile="$ctrl.showMoreMobile">
+<mail-table-component emails="$ctrl.emails" count-mail-box="$ctrl.countMailBox" email-state="'Outbox'" show-more-mobile="$ctrl.showMoreMobile" outbox-table="true">
 </mail-table-component>
 <bottom-mail-table-component page="$ctrl.page" ng-if="$ctrl.emails.length > 0" emails="$ctrl.emails" all-count="$ctrl.allCount" email-state="'outbox'">
 </bottom-mail-table-component>

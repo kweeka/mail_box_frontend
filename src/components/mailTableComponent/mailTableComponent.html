@@ -5,7 +5,8 @@
             <span ng-class="{highlight_all_mail_flag_checkbox_icon: $ctrl.checkedAll}"></span>
         </span>
         </td>
-        <td class="sender_table">Sender</td>
+        <td class="sender_table" ng-if="!$ctrl.outboxTable">Sender</td>
+        <td class="sender_table" ng-if="$ctrl.outboxTable">Recipient</td>
         <td class="text_table"><span>Text</span>
         </td>
         <td class="date_table">Date</td>
@@ -16,9 +17,13 @@
                 <span ng-class="{highlight_all_mail_flag_checkbox_icon: email.checked}"></span>
             </span>
         </td>
-        <td class="sender_table">
+        <td class="sender_table" ng-if="!$ctrl.outboxTable">
             <span class="spender_email_circle">{{email.sender.charAt(0)}}</span>
             <span class="sender_table_sender cut_text" ng-class="{read_mail: email.read}">{{email.sender}}</span>
+        </td>
+        <td class="sender_table" ng-if="$ctrl.outboxTable">
+            <span class="spender_email_circle">{{email.recipient.charAt(0)}}</span>
+            <span class="sender_table_sender cut_text" ng-class="{read_mail: email.read}">{{email.recipient}}</span>
         </td>
         <td class="text_table" ui-sref="mail.open({mailId: email.id})">
             <span class="subject_table" ng-class="{read_mail: email.read, cut_text: email.cut}">{{email.subject}}</span><span class="text_table_cut cut_text">{{email.text}}</span>
