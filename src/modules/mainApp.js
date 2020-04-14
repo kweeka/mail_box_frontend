@@ -145,7 +145,7 @@
             });
             $stateProvider.state({
                 name: "mail.outbox",
-                url: "/outbox",
+                url: "/outbox/:page",
                 component: "mailOutboxComponent",
                 params: {
                     page: {
@@ -193,7 +193,7 @@
             });
             $stateProvider.state({
                 name: "mail.deleted",
-                url: "/deleted:page",
+                url: "/deleted/:page",
                 component: "mailDeletedComponent",
                 params: {
                     page: {
@@ -208,7 +208,7 @@
                         var count = localStorage.getItem("pageMailCount") || 5;
                         var emailsArr = [];
                         if(localStorage.getItem("authToken")){
-                            return mailService.getMailDeletedInbox(page, count)
+                            return mailService.getMailDeleted(page, count)
                                 .then (function success(response) {
                                         if(response.data.response.items.length){
                                             for (var i = 0; i < response.data.response.items.length; i++) {

@@ -76,7 +76,7 @@
                     })
             }
             if(ctrl.emailState == "Deleted"){
-                return mailService.getMailDeletedInbox(page, count)
+                return mailService.getMailDeleted(page, count)
                     .then( function (response) {
                         if (response.data.response.items.length > 0) {
                             for (var i = 0; i < response.data.response.items.length; i++) {

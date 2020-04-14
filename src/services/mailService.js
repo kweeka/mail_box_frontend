@@ -11,7 +11,7 @@
                     }
                 })
             },
-            getMailDeletedInbox: function (email_page, count) {
+            getMailDeleted: function (email_page, count) {
                 return $http ({
                     method: "GET",
                     url: apiUrl + "/api/v1/mail/deleted?page=" + email_page + "&count=" + count,
@@ -29,7 +29,7 @@
                     }
                 })
             },
-            deleteMailInbox: function (arr) {
+            deleteMail: function (arr) {
                 return $http ({
                     method: "DELETE",
                     url: apiUrl + "/api/v1/mail/delete_mails",
