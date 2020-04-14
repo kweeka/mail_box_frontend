@@ -36,23 +36,6 @@
             if (ctrl.lastMail == ctrl.allCount){
                 ctrl.showArrowNext = false;
             }
-            /*
-            if(ctrl.page === 1 ){
-                if(localStorage.getItem("pageMailCount") == mailStorage.getCount()){
-                    ctrl.nextPageLimit = false;
-                }
-                ctrl.firstMail = 1;
-                ctrl.lastMail = localStorage.getItem("pageMailCount");
-                ctrl.earlyPageLimit = false;
-            } else if(localStorage.getItem("pageMailCount") * (ctrl.page) >= mailStorage.getCount()){
-                ctrl.firstMail = localStorage.getItem("pageMailCount") * (ctrl.page - 1) + 1;
-                ctrl.lastMail = mailStorage.getCount();
-                ctrl.nextPageLimit = false;
-            } else {
-                ctrl.firstMail = localStorage.getItem("pageMailCount") * (ctrl.page - 1) + 1;
-                ctrl.lastMail = localStorage.getItem("pageMailCount") * (ctrl.page);
-            }
-            */
         };
 
         ctrl.listMailPage = ['5', '10', '20', '50'];

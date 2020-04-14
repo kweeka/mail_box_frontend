@@ -27,7 +27,7 @@
                     ctrl.arrCheck.push(ctrl.emails[y].id);
                 }
             }
-            mailService.deleteMailInbox(ctrl.arrCheck)
+            mailService.deleteMail(ctrl.arrCheck)
                 .then (function success(response) {
                     console.log(response);
                     $state.reload();
