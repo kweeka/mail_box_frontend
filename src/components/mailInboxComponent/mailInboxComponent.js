@@ -9,7 +9,7 @@
             }
         });
 
-    function mailInboxController(mailService, $state, mailStorage, $timeout) {
+    function mailInboxController(mailService, $state, mailStorage, $timeout, $stateParams) {
         var ctrl = this;
         ctrl.$onInit = function () {
             $timeout(function () {
