@@ -33,7 +33,29 @@
         ctrl.addTable = function () {
             var page = $stateParams.page + 1;
             var count = localStorage.getItem("pageMailCount") || 5;
-            if(ctrl.emailState == "Inbox"){
+            return mailService['getMail' + ctrl.emailState](page, count)
+                .then( function (response) {
+                    if (response.data.response.items.length) {
+                        for (var i = 0; i < response.data.response.items.length; i++) {
+                            if(response.data.response.items[i].subject.length > 20){
+                                var cut = true;
+                            } else cut = false;
+                            var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
+                                response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].read,
+                                new Date(response.data.response.items[i].date), cut, response.data.response.items[i].recipient);
+                            mailStorage.addEmails(email);
+                        }
+                        $stateParams.page++;
+                        console.log(mailStorage.getEmails().length);
+                        if(mailStorage.getEmails().length == ctrl.countMailBox){
+                            ctrl.showMoreMobile = false;
+                        }
+                        return mailStorage.getEmails();
+                    }
+                }, function error() {
+                    return null;
+                })
+            /*if(ctrl.emailState == "Inbox"){
                 return mailService.getMailInbox(page, count)
                     .then( function (response) {
                         if (response.data.response.items.length > 0) {
@@ -96,6 +118,7 @@
                         return null;
                     })
             }
+            */
         };
 
         /*ctrl.$onInit = function () {
