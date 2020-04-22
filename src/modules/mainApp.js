@@ -174,7 +174,7 @@
                                             }
                                         } else {
                                             if (page !== 1 && response.data.response.items.length == 0) {
-                                                $state.go("mail.deleted", {page: page - 1});
+                                                $state.go("mail.outbox", {page: page - 1});
                                             }
                                         }
                                         mailStorage.setEmails(emailsArr, response.data.response.count_inbox, response.data.response.count_outbox, response.data.response.count_deleted,
