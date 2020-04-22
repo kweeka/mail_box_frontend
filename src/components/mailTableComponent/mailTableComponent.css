@@ -212,6 +212,10 @@
     margin: auto;
 }
 
+.highlight_all_mail_flag_checkbox_with_bottom {
+    bottom: -10px;
+}
+
 .highlight_all_mail_flag_checkbox {
     width: 15px;
     height: 15px;
@@ -222,11 +226,10 @@
     border-radius: 3px;
     margin: auto;
     position: relative;
-    bottom: -10px;
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-    .highlight_all_mail_flag_checkbox {
+@media (min-width: 768px) and (max-width: 1024px) {
+    .highlight_all_mail_flag_checkbox_with_bottom {
         bottom: -16px;
     }
 }
@@ -264,7 +267,10 @@ table input {
     white-space: nowrap;
 }
 
-
+.checkbox_mobile_table input {
+    position: relative;
+    display: none;
+}
 
 
 
