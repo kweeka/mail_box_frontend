@@ -1,7 +1,7 @@
 <table id="mail_table" ng-show="$ctrl.emails && !($ctrl.emails.length === 0)" class="desktop_table_mail">
     <tr class="mail_table_tr">
         <td class="checkbox_mail"><input type="checkbox" ng-model="$ctrl.checkedAll"/>
-        <span class="highlight_all_mail_flag_checkbox" ng-click="$ctrl.checkAll()">
+        <span class="highlight_all_mail_flag_checkbox highlight_all_mail_flag_checkbox_with_bottom" ng-click="$ctrl.checkAll()">
             <span ng-class="{highlight_all_mail_flag_checkbox_icon: $ctrl.checkedAll}"></span>
         </span>
         </td>
@@ -13,7 +13,7 @@
     </tr>
     <tr ng-repeat="email in $ctrl.emails| filter:$ctrl.filter" class="mail_table_tr">
         <td class="checkbox_mail"><input type="checkbox" ng-model="email.checked"/>
-            <span class="highlight_all_mail_flag_checkbox" ng-click="email.checked=!email.checked">
+            <span class="highlight_all_mail_flag_checkbox highlight_all_mail_flag_checkbox_with_bottom" ng-click="email.checked=!email.checked">
                 <span ng-class="{highlight_all_mail_flag_checkbox_icon: email.checked}"></span>
             </span>
         </td>
@@ -39,10 +39,19 @@
 <div id="mail_table_no_mail" ng-show="$ctrl.emails.length === 0">There are no mails</div>
 <div id="mobile_table_mail">
     <div class="mobile_table" ng-repeat="email in $ctrl.emails">
-        <div class="checkbox_mobile_table"><input type="checkbox" ng-model="email.checked"/></div>
+        <div class="checkbox_mobile_table"><input type="checkbox" ng-model="email.checked"/>
+            <span class="highlight_all_mail_flag_checkbox" ng-click="email.checked=!email.checked">
+                <span ng-class="{highlight_all_mail_flag_checkbox_icon: email.checked}"></span>
+            </span>
+        </div>
         <div class="body_mobile_table" ui-sref="mail.open({mailId: email.id})">
             <div class="sender_data_mobile">
-                <div class="sender_mobile_table cut_text">{{email.sender}}</div>
+                <div ng-if="!$ctrl.outboxTable">
+                    <div class="sender_mobile_table">{{email.sender}}</div>
+                </div>
+                <div ng-if="$ctrl.outboxTable">
+                    <div class="sender_mobile_table">{{email.recipient}}</div>
+                </div>
                 <div class="date_mobile_table">{{email.dateTime | emailDateFilter}}</div>
             </div>
             <div>
