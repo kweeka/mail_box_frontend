@@ -111,7 +111,7 @@
     background-color: #eb7d16;
     line-height: 25px;
     height: 28px;
-    width: 35px;
+    width: 28px;
     display: inline-block;
     text-align: center;
     border-radius: 50%;
@@ -252,7 +252,6 @@ table input {
 }
 
 .sender_table_sender {
-    width: 100%;
     font-weight: bold;
 }
 
