@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "angular": "^1.7.9",
+    "angular-auto-complete": "^1.7.4",
     "angular-ui-router": "^1.0.25",
     "gulp-angular-embed-templates": "^2.3.0",
     "gulp-autoprefixer": "^7.0.1",

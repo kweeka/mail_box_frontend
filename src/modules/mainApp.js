@@ -1,5 +1,5 @@
 (function () {
-    angular.module("mainApp", ["ui.router", "apiModule","storageModule", "filterModule"])
+    angular.module("mainApp", ["ui.router", "apiModule","storageModule", "filterModule", "autoCompleteModule", "ngSanitize"])
         .config(["$stateProvider", "$locationProvider", "$urlRouterProvider",  function ($stateProvider, $locationProvider, $urlRouterProvider) {
             $locationProvider.html5Mode(true);
             $stateProvider.state({
@@ -250,6 +250,17 @@
                     },
                     subject: {
                         value: null
+                    }
+                },
+                resolve: {
+                    contacts: function (authService, contactStorage) {
+                        return authService.getContacts()
+                            .then (function success(response) {
+                                contactStorage.setContactsList(response.data.response.items);
+                                return null;
+                            }, function error(response) {
+                                console.log(response);
+                            });
                     }
                 }
             });

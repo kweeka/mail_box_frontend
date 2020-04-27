@@ -43,6 +43,15 @@
                             'Authorization': 'Bearer ' + localStorage.getItem("authToken")
                         }
                     })
+                },
+                getContacts: function () {
+                    return $http ({
+                        method: "GET",
+                        url: apiUrl + "/api/v1/contact/list",
+                        headers: {
+                            'Authorization': 'Bearer ' + localStorage.getItem("authToken")
+                        }
+                    })
                 }
             }
         }])
