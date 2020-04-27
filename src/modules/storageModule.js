@@ -50,5 +50,43 @@
                     this.user = null;
                 }
             };
-        });
+        })
+        .factory("contactStorage", function () {
+            return {
+                list: null,
+                setContactsList: function (list) {
+                    var newList = [];
+                    for (var val of list) {
+                        var contact = new Contact(val.name, val.email, val.id);
+                        newList.push(contact);
+                    }
+                    return this.list = newList;
+                },
+                getContactsList: function () {
+                    return this.list;
+                }
+            }
+        })
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,10 +1,13 @@
 (function () {
     angular.module("mainApp").component("newMailComponent", {
         templateUrl: "newMailComponent.html",
-        controller: newMailController
+        controller: newMailController,
+        bindings: {
+            contacts: "="
+        }
     });
 
-    function newMailController(mailService, $state, $stateParams) {
+    function newMailController(mailService, $state, $stateParams, authService, contactStorage) {
         var ctrl = this;
         ctrl.$onInit =function () {
             ctrl.recipient = ctrl.recipient || $stateParams.recipient;
@@ -26,6 +29,45 @@
                 }, function (response) {
                     console.log(response);
                 })
+        };
+        ctrl.autoCompleteOptions = {
+            minimumChars: 2,
+            data: function (searchText) {
+                return _.filter(contactStorage.getContactsList(), function (state) {
+                    return state.name.includes(searchText) || state.email.startsWith(searchText);
+                });
+            },
+            renderItem: function (item) {
+                return {
+                    value: item.email,
+                    label: `<span class="auto-complete">{{entry.item.email}} <{{entry.item.name}}></span>`
+                };
+            },
         }
     }
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

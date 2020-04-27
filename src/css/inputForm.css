@@ -5,3 +5,14 @@
     border: none;
     border-bottom: 1px solid #cdcccc;
 }
+
+.auto-complete-container {
+    border: none !important;
+}
+
+.auto-complete-container li{
+    border-bottom: solid 1px #dddddd !important;
+    background-color: #fafafa !important;
+    margin-top: 0px !important;
+    color: #5d6462 !important;
+}
