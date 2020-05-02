@@ -228,6 +228,20 @@
     position: relative;
 }
 
+@media (min-width: 320px) and (max-width: 767px) {
+    .highlight_all_mail_flag_checkbox {
+        width: 15px;
+        height: 15px;
+        border: 1px solid #d5d2d2;
+        box-shadow: inset #4f4d4d;
+        cursor: pointer;
+        display: block;
+        border-radius: 3px;
+        margin: auto;
+        position: initial;
+    }
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
     .highlight_all_mail_flag_checkbox_with_bottom {
         bottom: -16px;

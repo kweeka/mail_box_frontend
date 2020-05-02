@@ -9,11 +9,11 @@
             }
         });
 
-    function mailInboxController(mailService, $state, mailStorage, $timeout, $stateParams) {
+    function mailInboxController(mailService, $state, mailStorage, $timeout) {
         var ctrl = this;
         ctrl.$onInit = function () {
             $timeout(function () {
-                ctrl.emails = mailStorage.getEmails();
+                ctrl.mailStorage = mailStorage;
             }, 3000);
             ctrl.allCount = mailStorage.getCountInbox();
             if(mailStorage.getEmails().length < mailStorage.getCountInbox()){
@@ -22,9 +22,9 @@
         };
         ctrl.arrCheck = [];
         ctrl.getAllCheck = function () {
-            for(var y=0; y < ctrl.emails.length; y++){
-                if(ctrl.emails[y].checked == true){
-                    ctrl.arrCheck.push(ctrl.emails[y].id);
+            for(var y=0; y < ctrl.mailStorage.emails.length; y++){
+                if(ctrl.mailStorage.emails[y].checked == true){
+                    ctrl.arrCheck.push(ctrl.mailStorage.emails[y].id);
                 }
             }
             mailService.deleteMail(ctrl.arrCheck)

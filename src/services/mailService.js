@@ -2,10 +2,10 @@
     angular.module("apiModule")
         .factory("mailService", ["$http", "apiUrl", function ($http, apiUrl) {
         return {
-            getMailInbox: function (email_page, count) {
+            getMailInbox: function (email_page, count, searchMail = "") {
                 return $http ({
                     method: "GET",
-                    url: apiUrl + "/api/v1/mail/inbox?page=" + email_page + "&count=" + count,
+                    url: apiUrl + "/api/v1/mail/inbox?page=" + email_page + "&count=" + count + "&filter=" + searchMail,
                     headers: {
                         'Authorization': 'Bearer ' + localStorage.getItem("authToken")
                     }

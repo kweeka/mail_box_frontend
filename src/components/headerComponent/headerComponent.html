@@ -8,8 +8,8 @@ PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8v
                 <h3 id="name_company">Mail BOX</h3>
             </div>
             <div class="search" ng-show="$ctrl.user">
-                <input type="text" placeholder="Search"/>
-                <img src="resourses/icons/search.svg"/>
+                <input type="text" placeholder="Search" ng-model="$ctrl.search" ng-keyup="$event.keyCode == 13 && $ctrl.callSearch()"/>
+                <img src="resourses/icons/search.svg" ng-click="$ctrl.callSearch()"/>
             </div>
             <div id="button_reg" ng-show="!$ctrl.user">
                 <a href="registration"><input type="button" value="Registration" class="button_short"/></a>
@@ -38,8 +38,8 @@ PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8v
             <li>
                 <div id="mobile_menu_search" class="search">
                     <div>
-                        <input type="text" placeholder="Search"/>
-                        <img src="resourses/icons/search.svg"/>
+                        <input type="text" placeholder="Search" ng-model="$ctrl.search" ng-keyup="$event.keyCode == 13 && $ctrl.callSearch()"/>
+                        <img src="resourses/icons/search.svg" ng-click="[$ctrl.callSearch(), $ctrl.showMobileMenu=!$ctrl.showMobileMenu]" />
                     </div>
                 </div>
             </li>

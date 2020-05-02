@@ -5,7 +5,6 @@
         bindings: {
             emails: "=",
             countMailBox: "<",
-            emailState: "<",
             showMoreMobile: "=",
             outboxTable: "<"
         }
@@ -31,9 +30,11 @@
             }
         };
         ctrl.addTable = function () {
+            ctrl.currentPath = $state.current.name.slice(5);
+            ctrl.currentPath = ctrl.currentPath.charAt(0).toUpperCase() + ctrl.currentPath.substr(1);
             var page = $stateParams.page + 1;
             var count = localStorage.getItem("pageMailCount") || 5;
-            return mailService['getMail' + ctrl.emailState](page, count)
+            return mailService['getMail' + ctrl.currentPath](page, count)
                 .then( function (response) {
                     if (response.data.response.items.length) {
                         for (var i = 0; i < response.data.response.items.length; i++) {
@@ -55,70 +56,6 @@
                 }, function error() {
                     return null;
                 })
-            /*if(ctrl.emailState == "Inbox"){
-                return mailService.getMailInbox(page, count)
-                    .then( function (response) {
-                        if (response.data.response.items.length > 0) {
-                            for (var i = 0; i < response.data.response.items.length; i++) {
-                                var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
-                                    response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].read,
-                                    new Date(response.data.response.items[i].date));
-                                mailStorage.addEmails(email);
-                            }
-                            $stateParams.page++;
-                            console.log(mailStorage.getEmails().length);
-                            if(mailStorage.getEmails().length == ctrl.countMailBox){
-                                ctrl.showMoreMobile = false;
-                            }
-                            return mailStorage.getEmails();
-                        }
-                    }, function error() {
-                        return null;
-                    })
-            }
-            if(ctrl.emailState == "Outbox"){
-                return mailService.getMailOutbox(page, count)
-                    .then( function (response) {
-                        if (response.data.response.items.length > 0) {
-                            for (var i = 0; i < response.data.response.items.length; i++) {
-                                var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
-                                    response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].read,
-                                    new Date(response.data.response.items[i].date));
-                                mailStorage.addEmails(email);
-                            }
-                            $stateParams.page++;
-                            console.log(mailStorage.getEmails().length);
-                            if(mailStorage.getEmails().length == ctrl.countMailBox){
-                                ctrl.showMoreMobile = false;
-                            }
-                            return mailStorage.getEmails();
-                        }
-                    }, function error() {
-                        return null;
-                    })
-            }
-            if(ctrl.emailState == "Deleted"){
-                return mailService.getMailDeleted(page, count)
-                    .then( function (response) {
-                        if (response.data.response.items.length > 0) {
-                            for (var i = 0; i < response.data.response.items.length; i++) {
-                                var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
-                                    response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].read,
-                                    new Date(response.data.response.items[i].date));
-                                mailStorage.addEmails(email);
-                            }
-                            $stateParams.page++;
-                            console.log(mailStorage.getEmails().length);
-                            if(mailStorage.getEmails().length == ctrl.countMailBox){
-                                ctrl.showMoreMobile = false;
-                            }
-                            return mailStorage.getEmails();
-                        }
-                    }, function error() {
-                        return null;
-                    })
-            }
-            */
         };
 
         /*ctrl.$onInit = function () {
