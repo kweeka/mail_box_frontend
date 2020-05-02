@@ -5,19 +5,19 @@
         bindings: {
             page: "<",
             emails: "=",
-            allCount: "<",
-            emailState: "<"
+            allCount: "<"
         }
     });
 
     function bottomMailTableController($state) {
         var ctrl = this;
+        ctrl.currentPath = $state.current.name.slice(5);
         ctrl.getMailValMails = function () {
             localStorage.setItem("pageMailCount", ctrl.sele);
             $state.reload();
         };
         ctrl.transition = function () {
-            $state.go("mail." + ctrl.emailState, {page: ctrl.page});
+            $state.go("mail." + ctrl.currentPath, {page: ctrl.page});
         };
         ctrl.$onInit = function () {
             ctrl.count = localStorage.getItem("pageMailCount");
