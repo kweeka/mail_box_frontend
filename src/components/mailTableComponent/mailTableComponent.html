@@ -39,7 +39,8 @@
 <div id="mail_table_no_mail" ng-show="$ctrl.emails.length === 0">There are no mails</div>
 <div id="mobile_table_mail">
     <div class="mobile_table" ng-repeat="email in $ctrl.emails">
-        <div class="checkbox_mobile_table"><input type="checkbox" ng-model="email.checked"/>
+        <div class="checkbox_mobile_table">
+            <input type="checkbox" ng-model="email.checked"/>
             <span class="highlight_all_mail_flag_checkbox" ng-click="email.checked=!email.checked">
                 <span ng-class="{highlight_all_mail_flag_checkbox_icon: email.checked}"></span>
             </span>
