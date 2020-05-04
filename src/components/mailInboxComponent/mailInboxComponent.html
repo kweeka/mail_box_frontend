@@ -1,7 +1,16 @@
 <div class="mail_menu">
-    <input type="button" value="New mail" ui-sref="mail.new"/>
-    <input type="button" value="Mark as read"/>
-    <input type="button" value="Delete" ng-click="$ctrl.getAllCheck()"/>
+    <div class="mail_menu_button" ui-sref="mail.new">
+        <img src="resourses/icons/new_mail.svg">
+        <div>new mail</div>
+    </div>
+    <div class="mail_menu_button">
+        <img src="resourses/icons/read_mail.svg">
+        <div>mark as read</div>
+    </div>
+    <div class="mail_menu_button" ng-click="$ctrl.getAllCheck()">
+        <img src="resourses/icons/deleted_mail.svg">
+        <div>delete</div>
+    </div>
 </div>
 <mail-table-component emails="$ctrl.mailStorage.emails" count-mail-box="$ctrl.allCount" show-more-mobile="$ctrl.showMoreMobile">
 </mail-table-component>

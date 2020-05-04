@@ -1,0 +1,38 @@
+.mail_menu img {
+    width: 17px;
+    height: 17px;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.mail_menu_button {
+    color: #bababa;
+    background-color: #ffffff;
+    height: 36px;
+    transition: background-color 0.5s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-right: 1px solid #fafafa;
+    padding: 7px;
+    cursor: pointer;
+}
+
+.mail_menu_button:hover {
+    background-color: #fafafa;
+}
+
+.mail_menu {
+    display: flex;
+    border-bottom: 1px solid #ededed;
+}
+
+.mail_menu_button:last-child{
+    border-right: none;
+}
+.mail_menu_button div{
+    padding-right: 0px;
+}
+
+
+

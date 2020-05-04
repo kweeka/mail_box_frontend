@@ -1,5 +1,8 @@
 <div class="mail_menu">
-    <input type="button" value="Delete" ng-click="$ctrl.getAllCheck()"/>
+    <div class="mail_menu_button" ng-click="$ctrl.getAllCheck()">
+        <img src="resourses/icons/deleted_mail.svg">
+        <div>delete</div>
+    </div>
 </div>
 <mail-table-component emails="$ctrl.mailStorage.emails" count-mail-box="$ctrl.countMailBox" show-more-mobile="$ctrl.showMoreMobile" outbox-table="true">
 </mail-table-component>

@@ -57,22 +57,6 @@
     background-color: #00936c;
 }
 
-.mail_menu input {
-    width: 95px;
-    color: #fafafa;
-    background-color: #00af80;
-    height: 36px;
-    border-radius: 5px;
-    border: none;
-    margin: 0px 5px;
-    cursor: none;
-    transition: background-color 0.5s;
-}
-
-.mail_menu input:hover {
-    background-color: #00936c;
-}
-
 
 
 

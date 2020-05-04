@@ -206,10 +206,7 @@
     border-bottom: 3px solid #6a6666;
     border-right: 2px solid #6a6666;
     transform: skewX(27deg) rotate(47deg) scale(0.85);
-    position: absolute;
-    top: -19px;
-    left: 6px;
-    margin: auto;
+    margin: -17px 0px 0px 5px;
 }
 
 .highlight_all_mail_flag_checkbox_with_bottom {
