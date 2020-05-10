@@ -57,6 +57,19 @@
                     return null;
                 })
         };
+        ctrl.changeSatusImportant = function (emailId, importantMail) {
+            if (importantMail){
+                var statusImportant = 1;
+            } else {
+                statusImportant = 0;
+            }
+            mailService.changeImportantMail(emailId, statusImportant)
+                .then(function success(response) {
+                    console.log(response);
+                }, function error(response) {
+                    console.log(response);
+                });
+        };
 
         /*ctrl.$onInit = function () {
             for(var i=0; i < ctrl.emails.length; i++) {

@@ -46,7 +46,7 @@
 }
 
 .sender_table {
-    width: 169px;
+    width: 143px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -60,20 +60,23 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 570px;
+    width: 536px;
     cursor: pointer;
 }
 
 @media (min-width: 1024px) and (max-width: 1139px) {
     .text_table {
-        width: 454px;
+        width: 434px;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
     .text_table {
         flex-direction: column;
-        width: 272px;
+        width: 251px;
+    }
+    .sender_table {
+        width: 130px;
     }
 }
 
@@ -116,7 +119,7 @@
     text-align: center;
     border-radius: 50%;
     font-size: 19px;
-    margin-right: 9px;
+    margin-top: 4px;
 }
 
 #mobile_table_mail {
@@ -282,12 +285,28 @@ table input {
     display: none;
 }
 
+.mail_table_tr_box:hover {
+    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 0px 0px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+}
 
+.mobile_table:hover {
+    box-shadow: inset 0px 0 0 #ffffff, inset 0px 0 0 #ffffff, 0 0px 0px 0 rgba(60,64,67,.3), 0 0px 3px 0px rgba(60,64,67,.15);
+}
 
+.important_mail_flag_checkbox_icon {
+    margin-top: 4px;
+    height: 15px;
+    width: 15px;
+}
 
+@media (min-width: 768px) and (max-width: 1024px) {
+    .important_mail_flag_checkbox_icon {
+        margin-top: 10px;
+    }
+}
 
-
-
-
-
-
+@media (min-width: 320px) and (max-width: 767px) {
+    .important_mail_flag_checkbox_icon {
+        margin-top: -11px;
+    }
+}

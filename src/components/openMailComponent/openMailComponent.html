@@ -1,6 +1,12 @@
 <div class="mail_menu mobile_menu_show">
-    <input type="button" value="Respond" ui-sref="mail.new({recipient: $ctrl.email.sender, subject:$ctrl.email.subject})"/>
-    <input type="button" value="Delete" ng-click="$ctrl.getAllCheck()"/>
+    <div class="mail_menu_button" ui-sref="mail.new({recipient: $ctrl.email.sender, subject:$ctrl.email.subject})">
+        <img src="resourses/icons/respond.svg">
+        <div>respond</div>
+    </div>
+    <div class="mail_menu_button" ng-click="$ctrl.getAllCheck()">
+        <img src="resourses/icons/deleted_mail.svg">
+        <div>delete</div>
+    </div>
 </div>
 <div>
     <div id="open_mail" ng-if="$ctrl.email">

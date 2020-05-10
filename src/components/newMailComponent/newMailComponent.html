@@ -1,8 +1,13 @@
-<div class="new_mail_form" >
+<div>
     <div class="mail_menu mobile_menu_show">
-        <h3>New mail</h3>
-        <input type="button" value="Send" ng-click="$ctrl.sendMail()"/>
-        <input type="button" value="Save as draft"/>
+        <div class="mail_menu_button" ng-click="$ctrl.sendMail()">
+            <img src="resourses/icons/respond.svg">
+            <div>send</div>
+        </div>
+        <div class="mail_menu_button">
+            <img src="resourses/icons/new_mail.svg">
+            <div>save as draft</div>
+        </div>
     </div>
     <div id="new_mail_form">
         <input-complete-component placeholder="'To'" value="$ctrl.recipient" error="$ctrl.errorRecipient" type="'text'" auto-complete-options="$ctrl.autoCompleteOptions">
