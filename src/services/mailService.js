@@ -59,6 +59,19 @@
                         'Authorization': 'Bearer ' + localStorage.getItem("authToken")
                     }
                 })
+            },
+            changeImportantMail: function (email_id, important) {
+                return $http ({
+                    method: "POST",
+                    url: apiUrl + "/api/v1/mail/important",
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem("authToken")
+                    },
+                    data: {
+                        "email_id": email_id,
+                        "important": important
+                    }
+                })
             }
         }
     }])

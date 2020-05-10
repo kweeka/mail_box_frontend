@@ -11,18 +11,29 @@
         </td>
         <td class="date_table">Date</td>
     </tr>
-    <tr ng-repeat="email in $ctrl.emails| filter:$ctrl.filter" class="mail_table_tr">
+    <tr ng-repeat="email in $ctrl.emails| filter:$ctrl.filter" class="mail_table_tr mail_table_tr_box">
         <td class="checkbox_mail"><input type="checkbox" ng-model="email.checked"/>
             <span class="highlight_all_mail_flag_checkbox highlight_all_mail_flag_checkbox_with_bottom" ng-click="email.checked=!email.checked">
                 <span ng-class="{highlight_all_mail_flag_checkbox_icon: email.checked}"></span>
             </span>
         </td>
-        <td class="sender_table" ng-if="!$ctrl.outboxTable">
+        <td class="checkbox_mail" ng-click="$ctrl.changeSatusImportant(email.id, email.important)">
+            <input type="checkbox" ng-model="email.important"/>
+            <div class="important_mail_flag_checkbox_icon" ng-click="email.important=!email.important">
+                <img ng-show="!email.important" src="resourses/icons/star.svg">
+                <img ng-show="email.important" src="resourses/icons/star_active.svg">
+            </div>
+        </td>
+        <td ng-if="!$ctrl.outboxTable">
             <span class="spender_email_circle">{{email.sender.charAt(0)}}</span>
+        </td>
+        <td class="sender_table" ng-if="!$ctrl.outboxTable">
             <span class="sender_table_sender cut_text" ng-class="{read_mail: email.read}">{{email.sender}}</span>
         </td>
-        <td class="sender_table" ng-if="$ctrl.outboxTable">
+        <td ng-if="$ctrl.outboxTable">
             <span class="spender_email_circle">{{email.recipient.charAt(0)}}</span>
+        </td>
+        <td class="sender_table" ng-if="$ctrl.outboxTable">
             <span class="sender_table_sender cut_text" ng-class="{read_mail: email.read}">{{email.recipient}}</span>
         </td>
         <td class="text_table" ui-sref="mail.open({mailId: email.id})">
@@ -45,6 +56,14 @@
                 <span ng-class="{highlight_all_mail_flag_checkbox_icon: email.checked}"></span>
             </span>
         </div>
+        <div class="checkbox_mobile_table">
+            <input type="checkbox" ng-model="email.important"/>
+            <div class="important_mail_flag_checkbox_icon" ng-click="email.important=!email.important">
+                <img ng-show="!email.important" src="resourses/icons/star.svg">
+                <img ng-show="email.important" src="resourses/icons/star_active.svg">
+            </div>
+        </div>
+
         <div class="body_mobile_table" ui-sref="mail.open({mailId: email.id})">
             <div class="sender_data_mobile">
                 <div ng-if="!$ctrl.outboxTable">
