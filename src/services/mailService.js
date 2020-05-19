@@ -11,19 +11,19 @@
                     }
                 })
             },
-            getMailDeleted: function (email_page, count) {
+            getMailDeleted: function (email_page, count, searchMail = "") {
                 return $http ({
                     method: "GET",
-                    url: apiUrl + "/api/v1/mail/deleted?page=" + email_page + "&count=" + count,
+                    url: apiUrl + "/api/v1/mail/deleted?page=" + email_page + "&count=" + count + "&filter=" + searchMail,
                     headers: {
                         'Authorization': 'Bearer ' + localStorage.getItem("authToken")
                     }
                 })
             },
-            getMailOutbox: function (email_page, count) {
+            getMailOutbox: function (email_page, count, searchMail = "") {
                 return $http ({
                     method: "GET",
-                    url: apiUrl + "/api/v1/mail/outbox?page=" + email_page + "&count=" + count,
+                    url: apiUrl + "/api/v1/mail/outbox?page=" + email_page + "&count=" + count + "&filter=" + searchMail,
                     headers: {
                         'Authorization': 'Bearer ' + localStorage.getItem("authToken")
                     }
