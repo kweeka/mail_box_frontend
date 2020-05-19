@@ -43,8 +43,8 @@
                                     var cut = true;
                                 } else cut = false;
                                 var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
-                                    response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].is_opened,
-                                    new Date(response.data.response.items[i].date), cut, response.data.response.items[i].recipient);
+                                    response.data.response.items[i].sender, response.data.response.items[i].message,response.data.response.items[i].is_opened,
+                                    response.data.response.items[i].is_important, new Date(response.data.response.items[i].date), cut, response.data.response.items[i].recipient);
                                 emailsArr.push(email);
                             }
                         } else {
