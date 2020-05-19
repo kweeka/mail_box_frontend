@@ -6,6 +6,8 @@
 
     function openMailController($stateParams, mailService, mailStorage, $state) {
         var ctrl = this;
+        ctrl.currentPath = $state.current.name.slice(5);
+        ctrl.currentPath = ctrl.currentPath.charAt(0).toUpperCase() + ctrl.currentPath.substr(1);
         ctrl.mailId = $stateParams.mailId;
         console.log(ctrl.mailId);
         ctrl.$onInit = function () {

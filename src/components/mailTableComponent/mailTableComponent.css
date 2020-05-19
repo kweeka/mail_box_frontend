@@ -39,6 +39,10 @@
     width: 3%;
 }
 
+.checkbox_mail_menu {
+    margin-right: 70px !important;
+    margin-top: 4px;
+}
 @media (min-width: 768px) and (max-width: 1024px) {
     .checkbox_mail {
         width: 5%;
@@ -59,9 +63,9 @@
 .text_table {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
     width: 536px;
     cursor: pointer;
+    align-items: center;
 }
 
 @media (min-width: 1024px) and (max-width: 1139px) {
@@ -142,7 +146,7 @@
     .body_mobile_table {
         display: flex;
         flex-direction: column;
-        width: 90%;
+        width: 83%;
     }
     .mobile_table {
         display: flex;
@@ -154,7 +158,7 @@
         justify-content: space-between;
     }
     .checkbox_mobile_table {
-        margin-right: 13px;
+        margin-right: 10px;
         align-self: center;
     }
     .mail_menu {
@@ -182,6 +186,13 @@
 
     #add_mails_table_mobile input:hover {
         background-color: #00936c;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .mobile_menu_show {
+        display: flex !important;
+        margin-bottom: 10px;
     }
 }
 
@@ -310,3 +321,42 @@ table input {
         margin-top: -11px;
     }
 }
+
+.mail_table_tr_menu {
+    display: flex;
+    height: 30px !important;
+    padding: 0px 0px 0px 5px;
+}
+
+.mail_table_tr_menu th{
+    font-weight: normal !important;
+}
+
+.sender_table_menu {
+    margin-right: 72px;
+}
+
+.text_table_menu {
+    margin-right: 541px;
+}
+
+@media (min-width: 1024px) and (max-width: 1139px) {
+    .text_table_menu {
+        margin-right: 440px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .text_table_menu {
+        margin-right: 257px;
+    }
+    .checkbox_mail_menu {
+        margin-right: 73px !important;
+        margin-top: 4px;
+        margin-left: 1px;
+    }
+    .sender_table_menu {
+        margin-right: 64px;
+    }
+}
+
