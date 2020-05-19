@@ -14,7 +14,7 @@
         ctrl.$onInit = function () {
             $timeout(function () {
                 ctrl.mailStorage = mailStorage;
-            }, 15000);
+            }, 3000);
             ctrl.allCount = mailStorage.getCountInbox();
             if(mailStorage.getEmails().length < mailStorage.getCountInbox()){
                 ctrl.showMoreMobile= true;
