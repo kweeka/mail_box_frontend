@@ -1,15 +1,15 @@
 <table id="mail_table" ng-show="$ctrl.emails && !($ctrl.emails.length === 0)" class="desktop_table_mail">
-    <tr class="mail_table_tr">
-        <td class="checkbox_mail"><input type="checkbox" ng-model="$ctrl.checkedAll"/>
-        <span class="highlight_all_mail_flag_checkbox highlight_all_mail_flag_checkbox_with_bottom" ng-click="$ctrl.checkAll()">
+    <tr class="mail_table_tr_menu">
+        <th class="checkbox_mail_menu"><input type="checkbox" ng-model="$ctrl.checkedAll"/>
+        <span class="highlight_all_mail_flag_checkbox" ng-click="$ctrl.checkAll()">
             <span ng-class="{highlight_all_mail_flag_checkbox_icon: $ctrl.checkedAll}"></span>
         </span>
-        </td>
-        <td class="sender_table" ng-if="!$ctrl.outboxTable">Sender</td>
-        <td class="sender_table" ng-if="$ctrl.outboxTable">Recipient</td>
-        <td class="text_table"><span>Text</span>
-        </td>
-        <td class="date_table">Date</td>
+        </th>
+        <th class="sender_table_menu" ng-if="!$ctrl.outboxTable">Sender</th>
+        <th class="sender_table_menu" ng-if="$ctrl.outboxTable">Recipient</th>
+        <th class="text_table_menu"><div>Text</div>
+        </th>
+        <th class="date_table_menu">Date</th>
     </tr>
     <tr ng-repeat="email in $ctrl.emails| filter:$ctrl.filter" class="mail_table_tr mail_table_tr_box">
         <td class="checkbox_mail"><input type="checkbox" ng-model="email.checked"/>
@@ -42,7 +42,7 @@
         <td class="date_table">{{email.dateTime | emailDateFilter}}</td>
     </tr>
 </table>
-<div class="bubblingG" ng-show="$ctrl.emails === null">
+<div class="bubblingG" ng-show="$ctrl.emails === undefined">
     <span id="bubblingG_1"></span>
     <span id="bubblingG_2"></span>
     <span id="bubblingG_3"></span>

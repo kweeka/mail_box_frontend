@@ -9,7 +9,7 @@
             outboxTable: "<"
         }
     });
-    function mailTableController(mailService, $stateParams, mailStorage) {
+    function mailTableController(mailService, $stateParams, mailStorage, $state) {
         var ctrl = this;
         ctrl.$onInit = function () {
         };
@@ -42,8 +42,8 @@
                                 var cut = true;
                             } else cut = false;
                             var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
-                                response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].read,
-                                new Date(response.data.response.items[i].date), cut, response.data.response.items[i].recipient);
+                                response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].is_opened,
+                                response.data.response.items[i].is_important, new Date(response.data.response.items[i].date), cut, response.data.response.items[i].recipient);
                             mailStorage.addEmails(email);
                         }
                         $stateParams.page++;
