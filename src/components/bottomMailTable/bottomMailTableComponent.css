@@ -1,6 +1,6 @@
 #bottom_mail {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 97%;
     margin: 15px;
 }
@@ -17,7 +17,7 @@
 
 #change_page {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 136px;
 }
 
