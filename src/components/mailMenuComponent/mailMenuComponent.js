@@ -7,7 +7,7 @@
     function mailMenuController(mailStorage, mailService) {
         var ctrl = this;
         ctrl.mailStorage = mailStorage;
-        if(!ctrl.mailStorage.countUnread){
+        if(!ctrl.mailStorage.countUnread && localStorage.getItem("authToken")){
             mailService.getMailInbox(1, 1)
                 .then(function success(response) {
                     mailStorage.setEmails(null, response.data.response.count_inbox, response.data.response.count_outbox, response.data.response.count_deleted,

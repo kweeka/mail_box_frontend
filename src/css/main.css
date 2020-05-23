@@ -1,5 +1,5 @@
-h1, h2, h3, p, input, div, ul, li, a {
-    font-family: Geneva;
+h1, h2, h3, p, input, div, ul, li, a, td, tr {
+    font-family: 'Roboto', sans-serif;
     margin: 0px;
 }
 
