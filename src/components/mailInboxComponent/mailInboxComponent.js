@@ -28,11 +28,9 @@
                 }
             }
             mailService.deleteMail(ctrl.arrCheck)
-                .then (function success(response) {
-                    console.log(response);
+                .then (function success() {
                     $state.reload();
-                }, function error(response) {
-                    console.log(response);
+                }, function error() {
                 });
         };
     }

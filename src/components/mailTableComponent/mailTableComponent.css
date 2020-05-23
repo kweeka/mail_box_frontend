@@ -43,6 +43,13 @@
     margin-right: 70px !important;
     margin-top: 4px;
 }
+
+@media (min-width: 1024px) and (max-width: 1139px) {
+    .checkbox_mail_menu {
+        margin-right: 65px !important;
+    }
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
     .checkbox_mail {
         width: 5%;
@@ -70,7 +77,7 @@
 
 @media (min-width: 1024px) and (max-width: 1139px) {
     .text_table {
-        width: 434px;
+        width: 429px;
     }
 }
 
@@ -162,7 +169,7 @@
         align-self: center;
     }
     .mail_menu {
-        display: none;
+        display: none !important;
     }
     .text_mobile_table {
         width: 100%;
@@ -308,6 +315,7 @@ table input {
     margin-top: 4px;
     height: 15px;
     width: 15px;
+    cursor: pointer;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -332,12 +340,16 @@ table input {
     font-weight: normal !important;
 }
 
-.sender_table_menu {
+.recipient_table_menu {
     margin-right: 72px;
 }
 
+.sender_table_menu {
+    margin-right: 90px;
+}
+
 .text_table_menu {
-    margin-right: 541px;
+    margin-right: 548px;
 }
 
 @media (min-width: 1024px) and (max-width: 1139px) {
@@ -355,8 +367,12 @@ table input {
         margin-top: 4px;
         margin-left: 1px;
     }
-    .sender_table_menu {
+    .recipient_table_menu {
         margin-right: 64px;
+    }
+
+    .sender_table_menu {
+        margin-right: 80px;
     }
 }
 
