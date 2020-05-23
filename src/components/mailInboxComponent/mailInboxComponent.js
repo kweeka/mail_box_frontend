@@ -16,13 +16,13 @@
                 ctrl.mailStorage = mailStorage;
             }, 3000);
             ctrl.allCount = mailStorage.getCountInbox();
-            if(mailStorage.getEmails().length < mailStorage.getCountInbox()){
-                ctrl.showMoreMobile= true;
+            if (mailStorage.getEmails() && mailStorage.getEmails().length < mailStorage.getCountInbox()) {
+                ctrl.showMoreMobile = true;
             }
         };
         ctrl.arrCheck = [];
         ctrl.getAllCheck = function () {
-            for(var y=0; y < ctrl.mailStorage.emails.length; y++){
+            for(var y=0; y < ctrl.mailStorage.emails.length; y++) {
                 if(ctrl.mailStorage.emails[y].checked == true){
                     ctrl.arrCheck.push(ctrl.mailStorage.emails[y].id);
                 }

@@ -76,7 +76,7 @@
                 url: "/mail",
                 component: "mailLayout",
                 resolve: {
-                   user: function (userService, authService) {
+                   user: function (userService, authService, $state) {
                        if (userService.getUser() && localStorage.getItem("authToken")) {
                            return userService.getUser();
                        }
@@ -87,7 +87,7 @@
                                    userService.setUser(user);
                                    return userService.getUser();
                                }, function error() {
-                                   return null;
+                                   localStorage.removeItem("authToken");
                                });
                        }
                        return null;
@@ -135,6 +135,8 @@
                                 }, function error() {
                                     return null;
                                 });
+                        } else {
+                            $state.go("mail/auth");
                         }
                     },
                     page: function ($stateParams) {
