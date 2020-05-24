@@ -11,9 +11,8 @@
 
     function mailInboxController(mailService, $state, mailStorage, $timeout) {
         var ctrl = this;
-
         ctrl.$onInit = function () {
-            $timeout(function () {
+           $timeout(function () {
                 ctrl.mailStorage = mailStorage;
             }, 1000);
             ctrl.allCount = mailStorage.getCountInbox();
@@ -31,7 +30,8 @@
             mailService.deleteMail(ctrl.arrCheck)
                 .then (function success() {
                     $state.reload();
-                }, function error() {
+                }, function error(response) {
+                    console.log(response);
                 });
         };
     }

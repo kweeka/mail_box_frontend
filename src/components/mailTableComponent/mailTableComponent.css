@@ -23,6 +23,12 @@
     #mail_table td {
         height: 45px;
     }
+    #mail_table .date_table {
+        padding: 1px 5px;
+    }
+    .date_table {
+        font-size: 10.5px;
+    }
 }
 
 #mail_table tr {
@@ -61,10 +67,6 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-}
-
-.text_table_cut{
-    width: 100%;
 }
 
 .text_table {
@@ -279,6 +281,12 @@ table input {
     width: 70%;
 }
 
+@media (min-width: 320px) and (max-width: 767px) {
+    .sender_mobile_table {
+        width: 100%;
+    }
+}
+
 .mail_table_tr {
     display: flex;
 }
@@ -291,11 +299,47 @@ table input {
     font-weight: normal;
 }
 
-.cut_text {
+.over_size_row_text {
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 24px;
+    max-width: 360px;
     white-space: nowrap;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .over_size_row_text {
+        max-width: 320px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .over_size_row_text {
+        max-width: 767px;
+        min-width: 254px;
+    }
+}
+
+.over_size_row_sender {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 152px;
+    white-space: nowrap;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .over_size_row_sender {
+        max-width: 200px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .over_size_row_subject {
+        max-width: 767px;
+        min-width: 243px;
+    }
+    .over_size_row_sender {
+        max-width: 162px;
+    }
 }
 
 .checkbox_mobile_table input {

@@ -8,12 +8,10 @@
         }
     });
 
-    function mailDeletedController(mailStorage, $timeout) {
+    function mailDeletedController(mailStorage) {
         var ctrl = this;
         ctrl.$onInit = function () {
-            $timeout(function () {
-                ctrl.mailStorage = mailStorage;
-            }, 1000);
+            ctrl.mailStorage = mailStorage;
             ctrl.countMailBox = mailStorage.getCountDeleted();
             if(mailStorage.getEmails().length < mailStorage.getCountDeleted()){
                 ctrl.showMoreMobile= true;

@@ -27,17 +27,17 @@
         <td ng-if="!$ctrl.outboxTable">
             <span class="spender_email_circle">{{email.sender.charAt(0)}}</span>
         </td>
-        <td class="sender_table" ng-if="!$ctrl.outboxTable">
-            <span class="sender_table_sender cut_text" ng-class="{read_mail: email.read}">{{email.sender}}</span>
+        <td class="sender_table" ng-if="!$ctrl.outboxTable" title="{{email.sender}}">
+            <span class="sender_table_sender over_size_row_sender" ng-class="{read_mail: email.read}">{{email.sender}}</span>
         </td>
         <td ng-if="$ctrl.outboxTable">
             <span class="spender_email_circle">{{email.recipient.charAt(0)}}</span>
         </td>
-        <td class="sender_table" ng-if="$ctrl.outboxTable">
-            <span class="sender_table_sender cut_text" ng-class="{read_mail: email.read}">{{email.recipient}}</span>
+        <td class="sender_table" ng-if="$ctrl.outboxTable" title="{{email.recipient}}">
+            <span class="sender_table_sender over_size_row_sender" ng-class="{read_mail: email.read}">{{email.recipient}}</span>
         </td>
         <td class="text_table" ui-sref="mail.open({mailId: email.id})">
-            <span class="subject_table" ng-class="{read_mail: email.read, cut_text: email.cut}">{{email.subject}}</span><span class="text_table_cut cut_text">{{email.text}}</span>
+            <span class="subject_table over_size_row_sender" ng-class="{read_mail: email.read}">{{email.subject}}</span><span class="over_size_row_text">{{email.text}}</span>
         </td>
         <td class="date_table">{{email.dateTime | emailDateFilter}}</td>
     </tr>
@@ -67,16 +67,16 @@
         <div class="body_mobile_table" ui-sref="mail.open({mailId: email.id})">
             <div class="sender_data_mobile">
                 <div ng-if="!$ctrl.outboxTable">
-                    <div class="sender_mobile_table">{{email.sender}}</div>
+                    <div class="sender_mobile_table over_size_row_sender" title="{{email.sender}}">{{email.sender}}</div>
                 </div>
                 <div ng-if="$ctrl.outboxTable">
-                    <div class="sender_mobile_table">{{email.recipient}}</div>
+                    <div class="sender_mobile_table over_size_row_sender" title="{{email.recipient}}">{{email.recipient}}</div>
                 </div>
                 <div class="date_mobile_table">{{email.dateTime | emailDateFilter}}</div>
             </div>
             <div>
-                <div class="subject_mobile_table cut_text"><b>{{email.subject}}</b></div>
-                <div class="text_mobile_table cut_text twitter-list">{{email.text}}</div>
+                <div class="subject_mobile_table over_size_row_subject"><b>{{email.subject}}</b></div>
+                <div class="text_mobile_table over_size_row_text twitter-list">{{email.text}}</div>
             </div>
         </div>
     </div>

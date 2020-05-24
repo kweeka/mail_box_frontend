@@ -30,7 +30,7 @@
                     return this.countUnread;
                 },
                 addEmails: function (arr) {
-                    this.emails.push(arr);
+                    this.emails = this.emails.concat(arr);
                 }
             }
         })
