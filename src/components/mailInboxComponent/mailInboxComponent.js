@@ -11,10 +11,11 @@
 
     function mailInboxController(mailService, $state, mailStorage, $timeout) {
         var ctrl = this;
+
         ctrl.$onInit = function () {
             $timeout(function () {
                 ctrl.mailStorage = mailStorage;
-            }, 3000);
+            }, 1000);
             ctrl.allCount = mailStorage.getCountInbox();
             if (mailStorage.getEmails() && mailStorage.getEmails().length < mailStorage.getCountInbox()) {
                 ctrl.showMoreMobile = true;

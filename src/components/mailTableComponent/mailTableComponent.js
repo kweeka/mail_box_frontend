@@ -3,28 +3,30 @@
         templateUrl: "mailTableComponent.html",
         controller: mailTableController,
         bindings: {
-            emails: "=",
             countMailBox: "<",
             showMoreMobile: "=",
-            outboxTable: "<"
+            outboxTable: "<",
         }
     });
-    function mailTableController(mailService, $stateParams, mailStorage, $state) {
+    function mailTableController(mailService, $stateParams, mailStorage, $state, $timeout) {
         var ctrl = this;
         ctrl.$onInit = function () {
+            $timeout(function () {
+                ctrl.mailStorage = mailStorage;
+            }, 1000);
         };
         ctrl.checkedAll = false;
         ctrl.arrCheck = [];
         ctrl.checkAll = function () {
             if(ctrl.checkedAll){
-                for(var i=0; i < ctrl.emails.length; i++){
-                    ctrl.emails[i].checked = false;
+                for(var i=0; i < ctrl.mailStorage.emails.length; i++){
+                    ctrl.mailStorage.emails[i].checked = false;
                     ctrl.checkedAll = !ctrl.checkedAll;
                 }
             } else {
-                for(var y=0; y < ctrl.emails.length; y++){
-                    ctrl.emails[y].checked = true;
-                    ctrl.arrCheck.push(ctrl.emails[y].id);
+                for(var y=0; y < ctrl.mailStorage.emails.length; y++){
+                    ctrl.mailStorage.emails[y].checked = true;
+                    ctrl.arrCheck.push(ctrl.mailStorage.emails[y].id);
                     ctrl.checkedAll = !ctrl.checkedAll;
                 }
             }

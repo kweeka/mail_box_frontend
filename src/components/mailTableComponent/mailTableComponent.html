@@ -1,4 +1,4 @@
-<table id="mail_table" ng-show="$ctrl.emails && !($ctrl.emails.length === 0)" class="desktop_table_mail">
+<table id="mail_table" ng-show="$ctrl.mailStorage.emails && !($ctrl.mailStorage.emails.length === 0)" class="desktop_table_mail">
     <tr class="mail_table_tr_menu">
         <th class="checkbox_mail_menu"><input type="checkbox" ng-model="$ctrl.checkedAll"/>
         <span class="highlight_all_mail_flag_checkbox" ng-click="$ctrl.checkAll()">
@@ -11,7 +11,7 @@
         </th>
         <th class="date_table_menu">Date</th>
     </tr>
-    <tr ng-repeat="email in $ctrl.emails| filter:$ctrl.filter" class="mail_table_tr mail_table_tr_box">
+    <tr ng-repeat="email in $ctrl.mailStorage.emails| filter:$ctrl.filter" class="mail_table_tr mail_table_tr_box">
         <td class="checkbox_mail"><input type="checkbox" ng-model="email.checked"/>
             <span class="highlight_all_mail_flag_checkbox highlight_all_mail_flag_checkbox_with_bottom" ng-click="email.checked=!email.checked">
                 <span ng-class="{highlight_all_mail_flag_checkbox_icon: email.checked}"></span>
@@ -42,14 +42,14 @@
         <td class="date_table">{{email.dateTime | emailDateFilter}}</td>
     </tr>
 </table>
-<div class="bubblingG" ng-show="$ctrl.emails === undefined">
+<div class="bubblingG" ng-show="$ctrl.mailStorage.emails === undefined">
     <span id="bubblingG_1"></span>
     <span id="bubblingG_2"></span>
     <span id="bubblingG_3"></span>
 </div>
-<div id="mail_table_no_mail" ng-show="$ctrl.emails.length === 0">There are no mails</div>
+<div id="mail_table_no_mail" ng-show="$ctrl.mailStorage.emails.length === 0">There are no mails</div>
 <div id="mobile_table_mail">
-    <div class="mobile_table" ng-repeat="email in $ctrl.emails">
+    <div class="mobile_table" ng-repeat="email in $ctrl.mailStorage.emails">
         <div class="checkbox_mobile_table">
             <input type="checkbox" ng-model="email.checked"/>
             <span class="highlight_all_mail_flag_checkbox" ng-click="email.checked=!email.checked">

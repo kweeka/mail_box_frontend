@@ -5,7 +5,7 @@
         </select>
     </div>
     <div id="change_page">
-        <div ng-show="$ctrl.showArrowLast" ui-sref="mail.{{$ctrl.currentPath}}({page: $ctrl.page-1})"><a><<</a></div>
+        <div class="bottom_page" ng-show="$ctrl.showArrowLast" ui-sref="mail.{{$ctrl.currentPath}}({page: $ctrl.page-1})"><a><<</a></div>
         <div>
             <span>
                 <span>{{$ctrl.firstMail}}</span>
@@ -15,6 +15,6 @@
             of
             <span>{{$ctrl.allCount}}</span>
         </div>
-        <div ng-show="$ctrl.showArrowNext" ui-sref="mail.{{$ctrl.currentPath}}({page: $ctrl.page+1})"><a>>></a></div>
+        <div class="bottom_page" ng-show="$ctrl.showArrowNext" ui-sref="mail.{{$ctrl.currentPath}}({page: $ctrl.page+1})"><a>>></a></div>
     </div>
 </div>
