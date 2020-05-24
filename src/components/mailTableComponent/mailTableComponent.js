@@ -8,13 +8,10 @@
             outboxTable: "<",
         }
     });
-    function mailTableController(mailService, $stateParams, mailStorage, $state, $timeout) {
+    function mailTableController(mailService, $stateParams, mailStorage, $state, $filter) {
         var ctrl = this;
-        ctrl.$onInit = function () {
-            $timeout(function () {
-                ctrl.mailStorage = mailStorage;
-            }, 1000);
-        };
+        ctrl.mailStorage = mailStorage;
+        console.log(mailStorage.emails);
         ctrl.checkedAll = false;
         ctrl.arrCheck = [];
         ctrl.checkAll = function () {
@@ -39,15 +36,8 @@
             return mailService['getMail' + ctrl.currentPath](page, count)
                 .then( function (response) {
                     if (response.data.response.items.length) {
-                        for (var i = 0; i < response.data.response.items.length; i++) {
-                            if(response.data.response.items[i].subject.length > 20){
-                                var cut = true;
-                            } else cut = false;
-                            var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
-                                response.data.response.items[i].sender, response.data.response.items[i].message, response.data.response.items[i].is_opened,
-                                response.data.response.items[i].is_important, new Date(response.data.response.items[i].date), cut, response.data.response.items[i].recipient);
-                            mailStorage.addEmails(email);
-                        }
+                        var emailsArr = $filter('emailFormat')(response.data.response.items);
+                        mailStorage.addEmails(emailsArr);
                         $stateParams.page++;
                         console.log(mailStorage.getEmails().length);
                         if(mailStorage.getEmails().length == ctrl.countMailBox){

@@ -30,7 +30,7 @@
             ctrl.showArrowLast = true;
             ctrl.firstMail = ((ctrl.page-1) * ctrl.count + 1);
             ctrl.lastMail = ctrl.emails.length + ((ctrl.page-1) * ctrl.count);
-            if (ctrl.page === 1 ) {
+            if (ctrl.page === 1) {
                 ctrl.showArrowLast = false;
             }
             if (ctrl.lastMail == ctrl.allCount){

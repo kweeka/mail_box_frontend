@@ -1,4 +1,4 @@
-function Email(id, subject, sender, text, read, important, dateTime, cut, recipient) {
+function Email(id, subject, sender, text, read, important, dateTime, recipient) {
     this.id = id;
     this.subject = subject;
     this.sender = sender;
@@ -7,6 +7,5 @@ function Email(id, subject, sender, text, read, important, dateTime, cut, recipi
     this.dateTime = dateTime;
     this.checked = false;
     this.important = important;
-    this.cut = cut;
     this.recipient = recipient;
 }

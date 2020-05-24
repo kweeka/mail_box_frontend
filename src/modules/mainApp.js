@@ -76,7 +76,7 @@
                 url: "/mail",
                 component: "mailLayout",
                 resolve: {
-                   user: function (userService, authService, $state) {
+                   user: function (userService, authService) {
                        if (userService.getUser() && localStorage.getItem("authToken")) {
                            return userService.getUser();
                        }
@@ -106,25 +106,16 @@
                     }
                 },
                 resolve: {
-                    emails: function (mailStorage, mailService, $stateParams, $state) {
+                    emails: function (mailStorage, mailService, $stateParams, $state, $filter) {
                         var page = $stateParams.page || 1;
                         var count = localStorage.getItem("pageMailCount") || 5;
-                        var emailsArr = [];
                         if (localStorage.getItem("authToken")) {
                             return mailService.getMailInbox(page, count)
                                 .then(function success(response) {
                                     if (response.data.response.items.length) {
-                                        for (var i = 0; i < response.data.response.items.length; i++) {
-                                            if(response.data.response.items[i].subject.length > 10){
-                                                var cut = true;
-                                            } else cut = false;
-                                            var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
-                                                response.data.response.items[i].sender, response.data.response.items[i].message,response.data.response.items[i].is_opened,
-                                                response.data.response.items[i].is_important, new Date(response.data.response.items[i].date), cut);
-                                            emailsArr.push(email);
-                                        }
-                                    }
-                                    else {
+                                        var emailsArr = $filter('emailFormat')(response.data.response.items);
+                                        console.log(emailsArr);
+                                    } else {
                                         if (page !== 1 && response.data.response.items.length == 0){
                                             $state.go("mail.inbox", {page: page - 1});
                                         }
@@ -157,23 +148,14 @@
                     }
                 },
                 resolve: {
-                    emails: function (mailStorage, mailService, $stateParams, $state) {
+                    emails: function (mailStorage, mailService, $stateParams, $state, $filter) {
                         var page = $stateParams.page || 1;
                         var count = localStorage.getItem("pageMailCount") || 5;
-                        var emailsArr = [];
                         if(localStorage.getItem("authToken")){
                             return mailService.getMailOutbox(page, count)
                                 .then (function success(response) {
                                         if(response.data.response.items.length){
-                                            for (var i = 0; i < response.data.response.items.length; i++) {
-                                                if(response.data.response.items[i].subject.length > 10){
-                                                    var cut = true;
-                                                } else cut = false;
-                                                var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
-                                                    null, response.data.response.items[i].message,response.data.response.items[i].is_opened,
-                                                    response.data.response.items[i].is_important, new Date(response.data.response.items[i].date), cut, response.data.response.items[i].recipient);
-                                                emailsArr.push(email);
-                                            }
+                                            var emailsArr = $filter('emailFormat')(response.data.response.items);
                                         } else {
                                             if (page !== 1 && response.data.response.items.length == 0) {
                                                 $state.go("mail.outbox", {page: page - 1});
@@ -205,23 +187,14 @@
                     }
                 },
                 resolve: {
-                    emails: function (mailStorage, mailService, $stateParams, $state) {
+                    emails: function (mailStorage, mailService, $stateParams, $state, $filter) {
                         var page = $stateParams.page || 1;
                         var count = localStorage.getItem("pageMailCount") || 5;
-                        var emailsArr = [];
                         if(localStorage.getItem("authToken")){
                             return mailService.getMailDeleted(page, count)
                                 .then (function success(response) {
                                         if(response.data.response.items.length){
-                                            for (var i = 0; i < response.data.response.items.length; i++) {
-                                                if(response.data.response.items[i].subject.length > 10){
-                                                    var cut = true;
-                                                } else cut = false;
-                                                var email = new Email(response.data.response.items[i].id, response.data.response.items[i].subject,
-                                                    response.data.response.items[i].sender, response.data.response.items[i].message,response.data.response.items[i].is_opened,
-                                                    response.data.response.items[i].is_important, new Date(response.data.response.items[i].date), cut);
-                                                emailsArr.push(email);
-                                            }
+                                            var emailsArr = $filter('emailFormat')(response.data.response.items);
                                         } else {
                                             if (page !== 1 && response.data.response.items.length == 0) {
                                                 $state.go("mail.deleted", {page: page - 1});
