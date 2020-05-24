@@ -11,7 +11,7 @@
                 ctrl.errorEmail = "Not correct";
                 return;
             }
-            if (ctrl.password === undefined || !ctrl.password.match(/\d{6,40}/g)){
+            if (ctrl.password === undefined || !ctrl.password.match(/\w{6,40}/g)){
                 ctrl.errorPassword = "Not correct";
                 return;
             }
