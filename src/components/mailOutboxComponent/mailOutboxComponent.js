@@ -8,10 +8,12 @@
         }
         });
 
-    function mailOutboxController(mailStorage, mailService, $state) {
+    function mailOutboxController(mailStorage, mailService, $state, $timeout) {
         var ctrl = this;
         ctrl.$onInit = function () {
-            ctrl.mailStorage = mailStorage;
+            $timeout(function () {
+                ctrl.mailStorage = mailStorage;
+            }, 1000);
             ctrl.countMailBox = mailStorage.getCountOutbox();
             if(mailStorage.getEmails().length < mailStorage.getCountOutbox()){
                 ctrl.showMoreMobile= true;
