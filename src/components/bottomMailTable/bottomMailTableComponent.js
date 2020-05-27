@@ -24,7 +24,7 @@
             if(ctrl.count){
                 ctrl.sele = ctrl.count;
             } else {
-                ctrl.sele = 10;
+                ctrl.sele = ctrl.listMailPage[0];
             }
             ctrl.showArrowNext = true;
             ctrl.showArrowLast = true;
