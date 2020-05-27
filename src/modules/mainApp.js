@@ -114,7 +114,8 @@
                                 .then(function success(response) {
                                     if (response.data.response.items.length) {
                                         var emailsArr = $filter('emailFormat')(response.data.response.items);
-                                        console.log(emailsArr);
+                                    }  else if (page === 1 && response.data.response.items.length === 0) {
+                                        emailsArr =[];
                                     } else {
                                         if (page !== 1 && response.data.response.items.length == 0){
                                             $state.go("mail.inbox", {page: page - 1});
@@ -156,6 +157,8 @@
                                 .then (function success(response) {
                                         if(response.data.response.items.length){
                                             var emailsArr = $filter('emailFormat')(response.data.response.items);
+                                        } else if (page === 1 && response.data.response.items.length === 0) {
+                                            emailsArr =[];
                                         } else {
                                             if (page !== 1 && response.data.response.items.length == 0) {
                                                 $state.go("mail.outbox", {page: page - 1});
@@ -195,6 +198,8 @@
                                 .then (function success(response) {
                                         if(response.data.response.items.length){
                                             var emailsArr = $filter('emailFormat')(response.data.response.items);
+                                        }  else if (page === 1 && response.data.response.items.length === 0) {
+                                            emailsArr =[];
                                         } else {
                                             if (page !== 1 && response.data.response.items.length == 0) {
                                                 $state.go("mail.deleted", {page: page - 1});

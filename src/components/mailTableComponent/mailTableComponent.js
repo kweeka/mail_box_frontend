@@ -8,10 +8,11 @@
             outboxTable: "<",
         }
     });
-    function mailTableController(mailService, $stateParams, mailStorage, $state, $filter) {
+    function mailTableController(mailService, $stateParams, mailStorage, $state, $filter, $timeout) {
         var ctrl = this;
-        ctrl.mailStorage = mailStorage;
-        console.log(mailStorage.emails);
+        $timeout(function () {
+            ctrl.mailStorage = mailStorage;
+        }, 1000);
         ctrl.checkedAll = false;
         ctrl.arrCheck = [];
         ctrl.checkAll = function () {
