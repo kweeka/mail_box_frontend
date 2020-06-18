@@ -27,7 +27,7 @@
     "gulp-uglify": "^3.0.2"
   },
   "dependencies": {
-    "angular": "^1.7.9",
+    "angular": "^1.8.0",
     "angular-auto-complete": "^1.7.4",
     "angular-ui-router": "^1.0.25",
     "gulp-angular-embed-templates": "^2.3.0",
