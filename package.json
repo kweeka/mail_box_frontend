@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/kweeka/mail_box_frontend#readme",
   "devDependencies": {
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.27.10",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-inject": "^5.0.5",
